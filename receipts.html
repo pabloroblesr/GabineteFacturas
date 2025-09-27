@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-MX">
+
+<head>
+  <title>Recibos Gabinete</title>
+  <link rel="shortcut icon" href="images/radiologia_dento_facial.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="print.css" type="text/css" media="print" />
+  <meta charset="UTF-8">
+  <meta name="description" content="Recibos Gabinete">
+  <meta name="author" content="Pablo Robles">
+  <script type="text/javascript" src="javascript.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+    <div class="header-row">
+      <div class="header-text">
+        <img class="header-img-receipts" src="images/onlyname.JPG">
+      </div>
+      <div class="header-title">
+        <h1 class="tit">RECIBOS</h1>
+      </div>
+      <div class="header-menu">
+        <div class="main-nav">
+            <a href="configuration.html">Configuración</a>
+            <a href="concepts.html">Conceptos</a>
+            <a href="help.html">Ayuda</a>
+        </div>
+      </div>
+    </div>
+    </header>
+    <receiptclient>
+    <div class="receipt-client">
+      <div class="header-receipt-client">
+      </div>
+      <table border="0" cellpadding="0" cellspacing="0" class="table">
+        <tr>
+          <td rowspan="5" class="picture">
+            <img class="logo" src="images/LogoRadiologiadentofacial.jpg" alt="Radilogia logo" />
+          </td>
+          <td class="space-busines-name"></p></td>
+          <td class="name">Martha Elena Robles Ramírez</td>
+          <td colspan="2" class="rfc">RFC. RORM 720323 L13</td>
+          <td class="space-busines-name"></p></td>
+        </tr>
+        <tr>
+          <td class="space-busines-name"></p></td>
+          <td class="address">Calz. Nacional 125, San Lorenzo<br>
+            Tula de Allende, Hidalgo. CP 42800</td>
+          <td colspan="2" class="tel">Tel. (773) 732 5784 / 773 178 6856<br>
+            radiologiaydiagnosticotula@hotmail.com</td>
+          <td class="space-busines-name"></p></td>
+        </tr>
+        <tr>
+          <td class="space-busines-name"></p></td>
+          <td class="address"></p></td>
+          <td class="space-before-"></p></td>
+          <td class="space-receipt"></p></td>
+          <td class="space-busines-name"></p></td>
+        </tr>
+        <tr>
+          <td class="space-busines-name"></p></td>
+          <td class="address"></p></td>
+          <td class="space-before-"></p></td>
+          <td colspan="2" class="receipt-title">RECIBO</td>
+        </tr>
+        <tr>
+          <td class="space-busines-name"></p></td>
+          <td class="address"></p></td>
+          <td class="space-before-"></p></td>
+          <td colspan="2" class="receipt-number" id="receipt-num-cli">No.</td>
+        </tr>
+      </table>
+      <table border="0" cellpadding="0" cellspacing="0" class="table">
+        <tr>
+          <td headers="clientHeader" class="client-name-cell">
+            Cliente: <br />
+            <input type="text" name="firstname" id="client-name-field-cli" class="client-name-field" oninput="copyName('client-name-field')">
+          </td>
+          <td headers="dateHeader" class="date-cell">
+            Fecha<br />
+            <input type="text" name="date" id="date-field-cli" class="date-field" onchange="copyName('date-field')" oninput="copyName('date-field')">
+          </td>
+        </tr>
+      </table>
+      
+      <table border="0" cellpadding="0" cellspacing="0" class="table">
+	      
+        <tr>
+          <td class="description-cell des-first-cell">
+            Descripción: <br />
+            <select size="1" name="descs" id="description-1-cli" onchange="getPrice('1')" class="description-combo">
+              <option value="" selected="selected"></option>
+            </select>
+          </td>
+          <td class="charge-cell charge-first-cell" headers="amountheader">
+            Importe: <br />
+
+            <input type="currency" name="price" id="price-field-1-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-1')" class="charge-field">
+	
+          </td>
+        </tr>
+        <tr>
+          <td class="description-cell with-fill">
+            <select size="1" name="descs" id="description-2-cli" onchange="getPrice('2')" class="description-combo with-fill">
+              <option value="" selected="selected"></option>
+            </select>
+          </td>
+          <td class="charge-cell with-fill">
+            <input type="currency" name="price" id="price-field-2-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-2')" class="charge-field with-fill">
+          </td>
+        </tr>
+        <tr>
+          <td class="description-cell">
+            <select size="1" name="descs" id="description-3-cli" onchange="getPrice('3')" class="description-combo">
+              <option value="" selected="selected"></option>
+            </select>
+          </td>
+          <td class="charge-cell">
+            <input type="currency" name="price" id="price-field-3-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-3')" class="charge-field">
+          </td>
+        </tr>
+        <tr>
+          <td class="description-cell with-fill">
+            <select size="1" name="descs" id="description-4-cli" onchange="getPrice('4')" class="description-combo with-fill">
+              <option value="" selected="selected"></option>
+            </select>
+          </td>
+          <td class="charge-cell with-fill">
+            <input type="currency" name="price" id="price-field-4-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-4')" class="charge-field with-fill">
+          </td>
+        </tr>
+        <tr>
+          <td class="description-cell">
+            <select size="1" name="descs" id="description-5-cli" onchange="getPrice('5')" class="description-combo">
+              <option value="" selected="selected"></option>
+            </select>
+          </td>
+          <td class="charge-cell">
+            <input type="currency" name="price" id="price-field-5-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-5')" class="charge-field">
+          </td>
+        </tr>
+        <tr>
+          <td class="description-cell des-last-cell with-fill">
+            <select size="1" name="descs" id="description-6-cli" onchange="getPrice('6')" class="description-combo with-fill">
+              <option value="" selected="selected"></option>
+            </select>
+          </td>
+          <td class="charge-cell charge-last-cell with-fill">
+            <input type="currency" name="price" id="price-field-6-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-6')" class="charge-field with-fill">
+          </td>
+        </tr>
+        <tr>
+          <td class=" description-cell charge-letter-cell" id="amount-Letter-Header">
+            Importe con letra: <br />
+            <input type="text" name="amount" id="amount-letter-field-cli" cols="80" rows="1" class="charge-letter-field" oninput="copyName('amount-letter-field')">
+          </td>
+          <td class="charge-cell total-charge-cell" headers="amountheader">
+            Total: <br />
+            <input type="currency" name="total" id="price-field-7-cli" value="0.00" step="0.01"  class="total-charge-field" readonly>
+          </td>
+        </tr>
+      </table>
+     
+      <copybelongs>
+        <p class="copy">- Copia Cliente -</p>
+      </copybelongs>
+    </div>
+    </receiptclient>
+    <div class="buttons">
+      <p>
+        <button class="button" onclick="receiptNum(0)" type="button">Nuevo Recibo</button>
+        <button class="button" onclick="receiptNum(1)" type="button">Nuevo Recibo para Factura</button>
+        <button class="button" onclick="printReceipt()">Imprimir</button>
+      </p>
+   </div>
+
+
+   <receiptbusiness>
+    <div class="receipt-business">
+      <secondreceipt>
+        <div class="header-receipt-business">
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" class="table">
+          <tr>
+            <td rowspan="5" class="picture">
+              <img src="images/LogoRadiologiadentofacial.jpg" alt="Radilogia logo" />
+            </td>
+            <td class="space-busines-name"></p></td>
+            <td class="name">Martha Elena Robles Ramírez</td>
+            <td colspan="2" class="rfc">RFC. RORM 720323 L13</td>
+            <td class="space-busines-name"></p></td>
+          </tr>
+          <tr>
+            <td class="space-busines-name"></p></td>
+            <td class="address">Calz. Nacional 125, San Lorenzo<br>
+              Tula de Allende, Hidalgo. CP 42800</td>
+            <td colspan="2" class="tel">Tel. (773) 732 5784 / 773 178 6856<br>
+              radiologiaydiagnosticotula@hotmail.com</td>
+            <td class="space-busines-name"></p></td>
+          </tr>
+          <tr>
+            <td class="space-busines-name"></p></td>
+            <td class="address"></p></td>
+            <td class="space-before-"></p></td>
+            <td class="space-receipt"></p></td>
+            <td class="space-busines-name"></p></td>
+          </tr>
+          <tr>
+            <td class="space-busines-name"></p></td>
+            <td class="address"></p></td>
+            <td class="space-before-"></p></td>
+            <td colspan="2" class="receipt-title">RECIBO</td>
+          </tr>
+          <tr>
+            <td class="space-busines-name"></p></td>
+            <td class="address"></p></td>
+            <td class="space-before-"></p></td>
+            <td colspan="2" class="receipt-number" id="receipt-num-bus">No.</td>
+          </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" class="table">
+          <tr>
+            <td headers="clientHeader" class="client-name-cell">
+              Cliente: <br />
+              <input type="text" name="firstname" id="client-name-field-bus" class="client-name-field">
+            </td>
+            <td headers="dateHeader" class="date-cell">
+              Fecha<br />
+              <input type="text" name="date" id="date-field-bus" class="date-field">
+            </td>
+          </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" class="table">
+          <tr>
+            <td class="description-cell des-first-cell">
+              Descripción: <br />
+              <input type="text" name="description-1-bus" id="description-1-bus" class="description-item">
+            </td>
+            <td class="charge-cell charge-first-cell" headers="amountheader">
+              Importe: <br />
+              <input type="currency" id="price-field-1-bus" value="0.00" step="0.01" class="charge-field-item" />
+            </td>
+          </tr>
+          <tr>
+            <td class="description-cell with-fill">
+              <input id="description-2-bus" class="description-item with-fill" />
+            </td>
+            <td class="charge-cell with-fill">
+              <input type="currency" id="price-field-2-bus" value="0.00" step="0.01" class="charge-field with-fill">
+            </td>
+          </tr>
+          <tr>
+            <td class="description-cell">
+              <input id="description-3-bus" class="description-item" />
+            </td>
+            <td class="charge-cell">
+              <input type="text" id="price-field-3-bus" value="0.00" step="0.01" class="charge-field">
+            </td>
+          </tr>
+          <tr>
+            <td class="description-cell with-fill">
+              <input id="description-4-bus" class="description-item with-fill" />
+            </td>
+            <td class="charge-cell with-fill">
+              <input type="text" id="price-field-4-bus" value="0.00" step="0.01"  class="charge-field-item with-fill">
+            </td>
+          </tr>
+          <tr>
+            <td class="description-cell">
+              <input id="description-5-bus" class="description-item" />
+            </td>
+            <td class="charge-cell">
+              <input type="text" id="price-field-5-bus" value="0.00" step="0.01"  class="charge-field">
+            </td>
+          </tr>
+          <tr>
+            <td class="description-cell des-last-cell with-fill">
+              <input id="description-6-bus" class="description-item with-fill" />
+            </td>
+            <td class="charge-cell charge-last-cell with-fill">
+              <input type="text" id="price-field-6-bus" value="0.00" step="0.01" class="charge-field-item with-fill">
+            </td>
+          </tr>
+          <tr>
+            <td class="description-cell charge-letter-cell" id="amount-Letter-Header">
+              Importe con letra: <br />
+              <input type="text" name="amount" id="amount-letter-field-bus" cols="80" rows="1" class="description-item">
+            </td>
+            <td class="charge-cell total-charge-cell" headers="amountheader">
+              Total: <br />
+              <input type="text" name="total" id="price-field-7-bus" value="0.00" step="0.01" class="total-charge-field" readonly>
+            </td>
+          </tr>
+        </table>
+        <copybelongs>
+          <p class="copy">- Copia Negocio -</p>
+        </copybelongs>
+        <script>
+          inicializeReceipts();
+        </script>
+      </secondreceipt>
+    </div>
+    </receiptbusiness>
+</body>
+<footer>
+  <p/>
+  <p>Copyright &copy; 2018-2019 Roher Soluciones S de RL de CV.</p>
+
+
+</footer>
+
+</html>

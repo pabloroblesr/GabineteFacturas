@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-MX">
+
+<head>
+  <title>Configuracion - Recibos Gabinete</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+  <script type="text/javascript" src="javascript.js"></script>
+</head>
+
+<body  id="configuration-page">
+  <div class="container">
+    <header>
+    <div class="header-row">
+      <div class="header-text header-text-conf">
+        <img class="header-img-configure" src="images/LogoRadiologiadentofacial.JPG">
+      </div>
+      <div class="header-title header-tittle-conf">
+        <h1 class="tit tit-conf">CONFIGURACIÓN</h1>
+      </div>
+      <div class="header-menu header-menu-conf">
+        <div class="main-nav">
+            <a href="receipts.html">Recibos</a>
+            <a href="notes.html">Notas</a>
+            <a href="concepts.html">Conceptos</a>
+            <a href="help.html">Ayuda</a>
+        </div>
+      </div>
+    </div>
+    </header>
+
+  <div>
+    <fieldset>
+      <legend>Números de recibos</legend>
+      <p />
+      <label>Cambio de prefijo para recibos sin factura</label>
+      <input type="text" id="no-invoice-prefix">
+      <input type="button" onclick="changePrefix()" value="Cambiar Prefijo" class="button button-conf">
+      <p />
+      <label>Siguiente número para recibo sin factura</label>
+      <input type="number" id="num-receipt-no-invoice" value="1">
+      <input type="button" onclick="changeReciptNum(0)" value="Cambiar número" class="button button-conf">
+      <p/>
+      <label>Siguiente número para recibo con factura</label>
+      <input type="number" id="num-receipt-invoice" value="1">
+      <input type="button" onclick="changeReciptNum(1)" value="Cambiar número" class="button button-conf">
+      <p />
+      <messagecorrect id="message-number-correct"></messagecorrect>
+      <messageerror id="message-number-error"></messageerror>
+    </fieldset>
+      <p />
+      <fieldset>
+        <legend>Agregar, Modificar o Borrar Concepto</legend>
+        <label>Descripción</label>
+        <select size="1" name="descs" id="descs" onchange="getConcept()">
+          <option value="" selected="selected"></option>
+        </select>
+        <p/>Concepto:
+        <input type="text" id="concept-name" name="format" value="" oninput="setNullComboBox()"/>
+        <p/>Precio:
+        <input type="currency" id="price-amount" value="0.00" step="0.01" onchange="chargeFormat('price-amount')">
+
+        <p/>
+        <input id="addButton" type="button" onclick="addNewConcept()" value="Agregar" class="button button-conf">
+        <input id="updateButton" type="button" onclick="updateConcept()" value="Modificar" class="button button-conf">
+        <input id="removeButton"type="button" onclick="deleteConcept()" value="Borrar" class="button button-conf">
+        <p />
+        <messagecorrect id="message-concept-correct"></messagecorrect>
+        <messageerror id="message-concept-error"></messageerror>
+      </fieldset>
+      <p />
+      <fieldset>
+        <legend>Importar y Exportar archivo de configuración</legend>
+        <p />
+          <input type="button" onclick="goToConepts()" value="Ir a importar archivo" class="button button-conf">
+          <input type="button" onclick="download()" value="Salvar a archvio" class="button button-conf">
+          <p />
+          <messagecorrect id="message-file-correct"></messagecorrect>
+          <messageerror id="message-file-error"></messageerror>
+      </fieldset>
+  </div>
+  <script>inicializeConfigData()</script>
+  <textarea class="textarea" id="before-table" rows="40" cols="500">
+    &lt!DOCTYPE html&gt
+    &lthtml xmlns="http://www.w3.org/1999/xhtml" lang="es-MX"&gt
+
+    &lthead&gt
+      &lttitle&gtConceptos - Recibos Gabinete&lt/title&gt
+      &ltmeta charset="UTF-8"&gt
+      &ltlink rel="stylesheet" href="style.css" type="text/css" media="screen"&gt
+      &ltscript type="text/javascript" src="javascript.js"&gt&lt/script&gt
+    &lt/head&gt
+
+    &ltbody id="concepts-page"&gt
+      &ltdiv class="container"&gt
+        &ltheader&gt
+        &ltdiv class="header-row"&gt
+          &ltdiv class="header-text header-text-conf"&gt
+            &ltimg class="header-img-configure" src="images/LogoRadiologiadentofacial.JPG"&gt
+          &lt/div&gt
+          &ltdiv class="header-title header-tittle-conf"&gt
+            &lth1 class="tit tit-conf"&gtCONCEPTOS&lt/h1&gt
+          &lt/div&gt
+          &ltdiv class="header-menu header-menu-conf"&gt
+            &ltdiv class="main-nav"&gt
+                &lta href="receipts.html"&gtRecibos&lt/a&gt
+                &lta href="configuration.html"&gtConfiguración&lt/a&gt
+                &lta href="help.htm"&gtAyuda&lt/a&gt
+            &lt/div&gt
+          &lt/div&gt
+        &lt/div&gt
+        &lt/header&gt
+
+      &ltdiv class="all-concepts-table"&gt
+        &ltp/&gt
+        &lttable id="tableConcepts" class="concepts-table"&gt
+          &lttr class="concepts-header"&gt
+            &ltth class="no-header"&gtNo.&lt/th&gt
+            &ltth class="concept-header"&gtConcepto&lt/th&gt
+            &ltth class="price-header"&gtPrecio&lt/th&gt
+          &lt/tr&gt
+</textarea>
+<textarea class="textarea" id="after-table" rows="10" cols="500">
+    &lt/table&gt
+  &lt/div&gt
+&lt/p&gt
+  &ltinput type="button" onclick="loadConcepts()" value="Importar Archivo" class="button button-conf button-concept"&gt
+&lt/p&gt
+  &ltmessageconcepts id="message-file"&gt&lt/messageconcepts&gt
+  &ltscript&gtresetConcepts()&lt/script&gt
+&lt/body&gt
+&ltfooter&gt
+  &ltp&gtCopyright &ampcopy; 2018-2019 Roher Soluciones S de RL de CV&lt/p&gt
+&lt/footer&gt
+&lt/html&gt
+</textarea>
+<textarea class="textarea" id="all-table" rows="80" cols="500">
+</textarea>
+</body>
+<footer>
+  <p>Copyright &copy; 2018-2019 Roher Soluciones S de RL de CV.</p>
+</footer>
+
+</html>

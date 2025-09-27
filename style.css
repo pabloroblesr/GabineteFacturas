@@ -1,0 +1,497 @@
+.container {
+  height: 600px;
+  width: 950px;
+}
+
+.header-row {
+  max-width: 950px;
+  height: 150px;
+  margin-left: 0px;
+  margin: auto;
+}
+
+.header-text {
+  width: 200px;
+  height: 100px;
+  display: inline-block;
+  vertical-align: top;
+}
+.header-text-conf {
+  width: 150px;
+}
+
+.header-img-receipts {
+  width: 200px;
+  height: 100px;
+  margin-top: 0px;
+  vertical-align: top;
+}
+
+.header-img-configure{
+  width: 150px;
+  height: 150px;
+  margin-top: 0px;
+  vertical-align: top;
+}
+
+.header-title {
+  width: 450px;
+  height: 150px;
+  display: inline-block;
+  vertical-align: top;
+}
+.header-tittle-conf {
+  width: 540px;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  /*background-color: #f1f1f1;*/
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.allreceipts {
+   padding-top: 50px;
+}
+.tit {
+  color: rgb(0, 102, 204);
+  font-size: 70px;
+  text-align: center;
+  margin-top: 0px;
+  vertical-align: top;
+  font-family: sans-serif;
+}
+
+.tit-conf {
+  font-size: 60px;
+}
+
+.header-menu {
+  width: 250px;
+  height: 150;
+  display: inline-block;
+}
+.header-menu-conf {
+  width: 200px;
+}
+
+.main-nav {
+  color: rgb(0, 102, 204);
+  text-decoration: none;
+  padding: 5px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  vertical-align: bottom;
+}
+
+.main-nav a {
+  border: 1px solid rgb(0, 102, 204);
+  vertical-align: bottom;
+}
+
+.buttons {
+  margin-left: 50px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #0066CC;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button-conf {
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+.button:hover {
+  background-color: #004C99
+}
+
+.button[disabled]:hover {
+  background-color: #D9E8F7
+}
+
+.button:disabled {
+  background-color: #D9E8F7
+}
+.button:active {
+  background-color: #004C99;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.button-concept {
+  margin-left: 350px;
+}
+
+.receipt-client {
+  width: 800px;
+  height: 500px;
+  margin-left: 50px;
+}
+
+.header-receipt-client {
+  display: none;
+}
+
+img.logo {
+  width: 150px;
+  height: 150px;
+}
+
+.name {
+  width: 275px;
+  font-size: 85%;
+  text-align: center;
+  height: 10px;
+  border-bottom: 3px dotted #1E90FF;
+  top-padding: 0px;
+  bottom-padding: 0px;
+  height: 10px;
+}
+
+.rfc {
+  width: 275px;
+  font-size: 85%;
+  text-align: center;
+  text-indent: 25px: height:15px;
+  border-bottom: 3px dotted #1E90FF;
+  left-padding: 10px;
+  right-padding: 10px;
+  height: 10px;
+}
+
+.tel {
+  width: 275px;
+  font-size: 85%;
+  height: 15px;
+  text-align: center;
+  left-padding: 20px;
+  right-padding: 10px;
+  height: 10px;
+  LINE-HEIGHT: 15px;
+}
+
+.address {
+  width: 275px;
+  font-size: 85%;
+  height: 15px;
+  text-align: center;
+  left-padding: 10px;
+  right-padding: 10px;
+  height: 10px;
+  LINE-HEIGHT: 15px;
+}
+
+.space {
+  width: 375px;
+  font-size: 85%;
+  height: 10px;
+  left-padding: 10px;
+  right-padding: 10px;
+  height: 10px;
+}
+.space-busines-name {
+  width: 50px;
+  font-size: 85%;
+  left-padding: 10px;
+  right-padding: 10px;
+}
+.space-before-receipt {
+  width: 100px;
+}
+.space-receipt {
+  width: 175x;
+}
+
+.receipt-title {
+  border: 1px solid blue;
+  border-radius: 10px 10px 0px 0px;
+  text-align-last: center;
+  background: rgb(153, 204, 255);
+  border-bottom-width: 0px;
+  width: 225px;
+  letter-spacing: 3px;
+  left-padding: 10px;
+  right-padding: 10px;
+  height: 40px;
+}
+.receipt-number {
+  border-collapse: collapse;
+  border-top: 1px solid blue;
+  border-right: 1px solid blue;
+  border-left: 1px solid blue;
+  border-bottom-width: 0px;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+  color: red;
+  font-size: 140%;
+  width: 225px;
+  left-padding: 10px;
+  right-padding: 10px;
+  height: 40px;
+}
+
+.client-name-cell {
+  width: 550px;
+  border-top: 1px solid blue;
+  border-right: 0px solid blue;
+  border-left: 1px solid blue;
+  border-bottom-width: 0px;
+  border-radius: 10px 0px 0px 10px;
+  padding-left: 12px;
+}
+
+.client-name-field {
+  width: 530px;
+  border: none;
+  font-size: 18px;
+}
+
+.date-cell {
+  width: 250px;
+  padding-left: 12px;
+  border-top: 1px solid blue;
+  border-right: 1px solid blue;
+  border-left: 1px solid blue;
+  border-bottom-width: 0px;
+  border-radius: 0px 10px 10px 0px
+}
+
+.date-field {
+  width: 230px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+.description-cell {
+  width: 650px;
+  border-right-width: 0px;
+  border-left: 1px solid blue;
+  padding-left: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 20px;
+}
+
+.des-first-cell {
+  border-top: 1px solid blue;
+  border-radius: 10px 0px 0px 0px;
+}
+
+.des-last-cell {
+  border-bottom: 0px;
+  border-radius: 0px 0px 0px 10px;
+}
+
+.description-combo {
+  width: 630px;
+  font-size: 18px;
+  #border: none;
+  #-webkit-appearance: none;
+  #-moz-appearance: none;
+  #text-indent: 1px;
+  #text-overflow: '';
+}
+
+.charge-cell {
+  width: 150px;
+  border-right: 1px solid blue;
+  border-left: 1px solid blue;
+  padding-left: 5px;
+  padding-top: 0px;
+  padding-bottom: : 0px;
+  height: 20px;
+}
+
+.charge-first-cell {
+  border-top: 1px solid blue;
+  border-radius: 0px 10px 0px 0px;
+}
+.charge-last-cell {
+  border-bottom: 0px;
+  border-radius: 0px 0px 10px 0px;
+}
+
+.charge-field {
+  width: 130px;
+  #border: none;
+  font-size: 18px;
+  text-align: right;
+}
+
+.charge-letter-cell {
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.charge-letter-field {
+  width: 630px;
+  border: none;
+  font-size: 18px;
+}
+
+.total-charge-cell {
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.total-charge-field {
+  border: none;
+  width: 130px;
+  font-size: 18px;
+  text-align: right;
+}
+
+.description-item {
+  width: 630px;
+  font-size: 18px;
+  border: none;
+  #-webkit-appearance: none;
+  #-moz-appearance: none;
+  #text-indent: 1px;
+  #text-overflow: '';
+}
+
+.charge-field-item {
+  width: 130px;
+  border: none;
+  font-size: 18px;
+  text-align: right;
+}
+
+.description-item-fill {
+  width: 630px;
+  font-size: 18px;
+  border: none;
+  #-webkit-appearance: none;
+  #-moz-appearance: none;
+  #text-indent: 1px;
+  #text-overflow: '';
+}
+
+.charge-field-item-fill {
+  width: 130px;
+  border: none;
+  font-size: 18px;
+  text-align: right;
+}
+
+body {
+  background-image:linear-gradient(rgba(100,100,100,0.5),rgba(30,30,30,0.5),url("images/LogoRadiologiadentofacial.JPG"));
+  background-size: cover;
+  background-position: center;
+}
+
+messagecorrect {
+  font-size: 18px;
+  color: green;
+}
+messageerror {
+  font-size: 18px;
+  color: red;
+}
+
+messageconcepts {
+  ont-size: 18px;
+  color: green;
+  padding-left: 300px;
+}
+fieldset {
+    border: 1px solid #0066CC;
+}
+
+.buttons {
+  padding-left: 60px;
+}
+.new-concept-field {
+  width: 630px;
+  font-size: 14px;
+}
+.select-editable select:focus, .select-editable input:focus {
+    outline:none;
+}
+
+.justprint {
+  display: none;
+}
+
+.secondreceipt {
+  display: none;
+}
+
+.all-concepts-table {
+  padding-left: 60px;
+}
+.concepts-table th, .concepts-table td {
+  border: 1px solid blue;
+}
+.concepts-header th{
+  background: rgb(153, 204, 255);
+}
+.no-header {
+  width: 40px;
+
+}
+.concept-header {
+  width: 500px;
+}
+.price-header {
+  width: 100px;
+}
+
+.concepts-table tr:nth-child(odd){
+    background: #CCE5FF;
+}
+
+.concepts-table td:nth-child(1){
+  text-align: center;
+}
+.concepts-table td:nth-child(2){
+  text-align: left;
+}
+.concepts-table td:nth-child(3){
+  text-align: right;
+}
+textarea {
+  display: none;
+}

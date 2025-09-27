@@ -3,287 +3,556 @@
         margin-top: 0;
         margin-bottom: 0;
     }
-
 }
 
-head, h1  {
+.not-print {
 	display: none;
 }
-nav  {
-	display: none;
-}
-body {
-  background: transparent;
+
+.description-combo {
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
-header {
-  display: none;
-}
-
-img {
-  width: 150px;
-  height: 150px;
+.discount-combo {
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 .receipt-client {
-  width: 800px;
-  height: 500px;
-  margin-left: 50px;
+  padding-top: 50px;
+  text-align: center;
   page-break-after: always;
 }
+
 .receipt-business {
-  width: 800px;
-  height: 500px;
-  margin-top: 50px;
-  margin-left: 50px;
+  padding-top: 50px;
 }
-.header-receipt-client{
-  height: 50px;
+
+.copy {
+  padding-top: 10px;
+  text-align: center;
+  color: red;
 }
-.header-receipt-business{
-  height: 50px;
+
+
+/****************/
+/* receipt tyle */
+/****************/
+
+.receipt-client {
+  display: grid;
+  grid-column-gap: 6px;
+  width: 880px;
+  padding-top: 10px;
 }
+
+.rec-header {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-column-gap: 30px;
+  width: 880px;
+  padding-top: 10px;
+}
+
+.item-logo {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  text-align: left;
+  width: 150px;
+  padding-bottom: 10px;
+
+}
+
 img.logo {
   width: 150px;
   height: 150px;
 }
 
-
-.name {
+.name-rfc-address{
+  grid-column: 2;
+  grid-row: 1;
   width: 275px;
-  font-size: 85%;
-  text-align: center;
-  height: 10px;
-  border-bottom: 3px dotted #1E90FF;
-  top-padding: 0px;
-  bottom-padding : 0px;
-  height: 10px;
 }
-
-.rfc {
-  width: 275px;
-  font-size: 85%;
+.name-rfc {
   text-align: center;
-  text-indent: 25px: height:15px;
-  border-bottom: 3px dotted #1E90FF;
-  left-padding: 10px;
-  right-padding : 10px;
-  height: 10px;
-}
-
-.tel {
-  width: 275px;
   font-size: 85%;
-  height: 15px;
+  border-bottom-style: dotted;
+  border-bottom-color: blue;
   text-align: center;
-  left-padding: 20px;
-  right-padding : 10px;
-  height: 10px;
-  LINE-HEIGHT:15px;
+  padding-bottom: 10px;
 }
 
 .address {
-  width: 275px;
   font-size: 85%;
-  height: 15px;
+  padding-top: 5px;
   text-align: center;
-  left-padding: 10px;
-  right-padding : 10px;
-  height: 10px;
-  LINE-HEIGHT:15px;
+  padding-top: 10px;
 }
 
-.space {
-  width: 375px;
+.rfc-tel {
+  grid-column: 3 / span 2;
+  grid-row: 1;
+  width: 275px;
+}
+.rfc {
   font-size: 85%;
-  height: 10px;
-  left-padding: 10px;
-  right-padding : 10px;
-  height: 10px;
+  border-bottom-style: dotted;
+  border-bottom-color: blue;
+  text-align: center;
+  padding-bottom: 10px;
 }
-.space-busines-name {
-  width: 50px;
+
+.tel {
   font-size: 85%;
-  left-padding: 10px;
-  right-padding: 10px;
+  padding-top: 5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.space-before-receipt {
-  width: 100px;
+
+.rfc-gap {
+  grid-column: 5;
+  grid-row: 1;
+  width: 150px;
 }
-.space-receipt {
-  width: 175x;
+.receipt-title-gap {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+  width: 420px;
 }
+
+.receipt-title-number {
+  grid-column: 4;
+  grid-row: 2;
+  width: 246px;
+  border: solid blue;
+  border-width: 2px 2px 1px 2px;
+  border-radius: 10px 10px 10px 10px;
+}
+
 .receipt-title {
-  border: 1px solid blue;
-  border-radius: 10px 10px 0px 0px;
+  letter-spacing: 3px;
   text-align-last: center;
   background: rgb(153, 204, 255);
-  border-bottom-width: 0px;
-  width: 225px;
-  letter-spacing: 3px;
-  left-padding: 10px;
-  right-padding : 10px;
-  height: 40px;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: solid;
+  border-bottom-color: blue;
+  border-bottom-width: 1px;
+  padding-top: 10px;
+  height: 30px;
 }
+
 .receipt-number {
-  border-collapse: collapse;
-  border-top: 1px solid blue;
-  border-right: 1px solid blue;
-  border-left: 1px solid blue;
-  border-bottom: 0px solid blue;
-  border-radius: 0px 0px 10px 10px;
-  text-align: center;
+  vertical-align: middle;
+  padding-top: 10px;
   color: red;
   font-size: 140%;
-  width: 225px;
-  left-padding: 10px;
-  right-padding : 10px;
-  height: 40px;
+  text-align: center;
+  height: 25px;
 }
 
+.rec-name-date {
+  grid-column: 1;
+  grid-row: 2;
+  width: 876px;
+  border: solid blue;
+  border-width: 2px 2px 1px 2px;
+  border-radius: 10px 10px 0px 0px;
+  grid-gap: 0px;
+  display: grid;
+}
 
 .client-name-cell {
-  width: 550px;
-  border-top: 1px solid blue;
-  border-right: 0px solid blue;
-  border-left: 1px solid blue;
-  border-bottom-width: 0px;
-  border-radius: 10px 0px 0px 10px;
-  padding-left: 12px;
+  grid-column: 1;
+  grid-row: 1;
+  width: 564px;
+  height: 45px;
+  padding-left: 10px;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 2px;
 }
 
 .client-name-field {
-  width: 530px;
+  font-size: 16px;
   border: none;
-  font-size: 18px;
+  width: 550px;
+  padding-top: 4px;
 }
 
 .date-cell {
-  width: 250px;
-  padding-left: 12px;
-  border-top: 1px solid blue;
-  border-right: 1px solid blue;
-  border-left: 1px solid blue;
-  border-bottom-width: 0px;
-  border-radius: 0px 10px 10px 0px
+  grid-column: 2;
+  grid-row: 1;
+  width: 290px;
+  height: 45px;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .date-field {
-  width: 230px;
-  border: none;
-  font-size: 18px;
   text-align: center;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  width: 276px;
+  padding-top: 4px;
 }
 
-.description-cell {
-  width: 650px;
-  border-right-width: 0px;
-  border-left: 1px solid blue;
-  padding-left: 12px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  height: 20px;
+.rec-items {
+  grid-column: 1;
+  grid-row: 3;
+  width: 876px;
+  border: solid blue;
+  border-width: 1px 2px 1px 2px;
+  border-radius: 0px 0px 10px 10px;
+  display: grid;
 }
 
-.des-first-cell {
-  border-top: 1px solid blue;
-  border-radius: 10px 0px 0px 0px;
+.rec-quantities {
+  grid-column: 1;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 1px;
+  width: 75px;
 }
 
-.des-last-cell {
-  border-bottom: 0px;
+.quantity-cell {
+  width: 70px;
+  padding-left: 5px;
+  height:25px;
+}
+
+.quantity-last-cell {
   border-radius: 0px 0px 0px 10px;
 }
 
-.with-fill {
-  background: #CCE5FF;
+.quantity-field {
+  width: 65px;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.rec-items-desc {
+  grid-column: 2;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 1px;
+  width: 559px;
+}
+
+.des-title-cell {
+  padding-left: 10px;
+  text-align: left;
+  height:25px;
+}
+
+.description-cell {
+  padding-left: 10px;
+  height:25px;
 }
 
 .description-combo {
-  width: 630px;
-  font-size: 18px;
+  width: 539px;
+  font-size: 16px;
   border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: '';
+  padding-top: 4px;
+}
+
+.rec-items-price {
+  grid-column: 3;
+  width: 118px;
+  border-right: solid blue;
+  border-right-width: 2px;
+}
+
+.price-title-cell {
+  text-align: left;
+  padding-left: 10px;
+  height:25px;
+}
+
+.price-cell {
+  height:25px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.price-field {
+  width: 94px;
+  border: none;
+  font-size: 16px;
+  text-align: right;
+  padding-top: 4px;
+}
+
+.rec-item-charge {
+  grid-column: 4;
+  width: 120px;
+}
+
+.charge-title-cell {
+  text-align: left;
+  padding-left: 10px;
+  height:25px;
 }
 
 .charge-cell {
-  width: 150px;
-  border-right: 1px solid blue;
-  border-left: 1px solid blue;
-  border-top: 0px ;
-  padding-left: 12px;
-  padding-top: 0px;
-  padding-bottom: : 0px;
-  height: 20px;
-}
-.charge-first-cell {
-  border-top: 1px solid blue;
-  border-radius: 0px 10px 0px 0px;
-}
-
-.charge-last-cell {
-  border-bottom: 0px solid blue;
-  border-radius: 0px 0px 10px 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height:25px;
 }
 
 .charge-field {
-  width: 130px;
+  width: 100px;
   border: none;
-  font-size: 18px;
-  text-align:right;
+  font-size: 16px;
+  text-align: right;
+  padding-top: 2px;
 }
 
-.charge-letter-cell {
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue;
-  border-radius: 10px 0px 0px 10px;
+.charge-last-cell {
+  border-radius: 0px 0px 10px 0px;
 }
 
-.charge-letter-field {
-  width: 630px;
-  border: none;
-  font-size: 18px;
+.with-fill {
+  #background: rgb(204, 229, 255);
 }
+
+.rec-disc-subtotal {
+  grid-column: 1;
+  grid-row: 4;
+  width: 876px;
+  display: grid;
+  border: solid blue;
+  border-width: 1px 2px 1px 2px;
+  border-radius: 10px 10px 10px 10px;
+}
+.rec-discount {
+  grid-column: 1;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 1px;
+  width: 635px;
+}
+
+.discount-title-cell {
+  padding-left: 10px;
+  height: 25px;
+}
+
+.discount-cell {
+  padding-left: 10px;
+  height: 30px;
+}
+
+.discount-combo {
+  width: 615px;
+  font-size: 16px;
+  border: none;
+}
+
+.rec-subtotal {
+  grid-column: 2;
+  text-align: right;
+  border-left: solid blue;
+  border-left-width: 1px;
+  width: 239px;
+  display: grid;
+}
+
+.subtotal-tittle-charge-cell {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+  height:25px;
+  width: 109px;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+.subtotal-charge-cell {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+  height:25px;
+  width: 110px;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.discount-tittle-charge-cell {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: right;
+  width: 109px;
+  padding-right: 10px;
+  font-size: 15px;
+  height: 25px;
+}
+
+.discount-charge-cell {
+  grid-column: 2;
+  grid-row: 2;
+  width: 110px;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+.rec-total {
+  grid-column: 1;
+  grid-row: 5;
+  width: 876px;
+  display: grid;
+  border: solid blue;
+  border-width: 1px 2px 2px 2px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.rec-letter-cell {
+  grid-column: 1;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 2px;
+  width: 635px;
+  display: grid;
+}
+
+.total-title-letter-cell {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.total-letter-cell {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: auto;
+}
+
+.total-letter-field {
+  border: none;
+  padding-top: 5px;
+  font-size: 16px;
+  text-align: left;
+  text-transform: lowercase;
+}
+
+.total-letter-field:first-letter {
+  text-transform: uppercase;
+}
+
+.rec-total-cell {
+  grid-column: 2 ;
+  width: 239px;
+  display: grid;
+  height: 50px;
+}
+
+.total-tittle-charge-cell {
+  grid-column: 1 ;
+  font-size: 20px;
+  width: 109px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .total-charge-cell {
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue;
-  border-radius: 0px 10px 10px 0px;
+  grid-column: 2 ;
+  padding-right: 10px;
+  line-height: 50px;
+  width: 110px;
+  text-align: right;
 }
+
 .total-charge-field {
     border: none;
-    width: 130px;
-    font-size: 18px;
-    text-align:right;
+    font-size: 20px;
+    text-align: right;
 }
 
-.description-item {
-  width: 630px;
-  font-size: 18px;
-  border: none;
-  #-webkit-appearance: none;
-  #-moz-appearance: none;
-  #text-indent: 1px;
-  #text-overflow: '';
+/*format busines receipt */
+
+.receipt-business {
+  display: grid;
+  grid-column-gap: 6px;
+  width: 880px;
+  padding-top: 10px;
 }
 
-.charge-field-item {
-  width: 130px;
-  border: none;
-  font-size: 18px;
-  text-align:right;
+.bus {
+  padding-left: 2px;
+  padding-top: 2px;
 }
 
-.copy {
+
+/*****************/
+/*format buttons */
+/*****************/
+
+.buttons {
+  grid-column: 1;
+  grid-row: 6;
+  display: grid;
+  /*grid-gap: 5px;*/
+  grid-column-gap: 0px;
+  /*background-color: #2196F3;*/
+  width: 877px;
   text-align: center;
-  color: red;
+  padding-top: 20px;
 }
 
-  .buttons {
-    display: none;
-  }
-  footer {
-    display: none;
-  }
+.button {
+  padding: 15px 25px;
+  color: #fff;
+  background-color: #0066CC;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {
+  background-color: #004C99
+}
+
+.button[disabled]:hover {
+  background-color: #D9E8F7
+}
+
+.button:disabled {
+  background-color: #D9E8F7
+}
+
+.button:active {
+  background-color: #004C99;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button-clear {
+  grid-column: 1 ;
+  grid-row: 1;
+  text-align: center;
+}
+
+.button-folio {
+  grid-column: 2 ;
+  grid-row: 1;
+  text-align: center;
+}
+
+.button-print {
+  grid-column: 3 ;
+  grid-row: 1;
+  text-align: center;
+}

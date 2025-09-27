@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-MX">
 
-<head>
+<head class="not-print">
   <title>Recibos Gabinete</title>
   <link rel="shortcut icon" href="images/radiologia_dento_facial.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" type="text/css" media="screen">
@@ -9,308 +9,457 @@
   <meta charset="UTF-8">
   <meta name="description" content="Recibos Gabinete">
   <meta name="author" content="Pablo Robles">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="javascript.js"></script>
 
 </head>
 
 <body>
-  <div class="container">
-    <header>
-    <div class="header-row">
-      <div class="header-text">
-        <img class="header-img-receipts" src="images/onlyname.JPG">
+  <div id="pagetype" style="display: none;">r</div>
+  <div class="header not-print">
+    <div class="header-row grid-container">
+      <div class="header-text header-column">
+        <img class="header-face" src="images/onlyface.jpg" alt="Radilogia logo" />
+        <img class="header-img-receipts" src="images/onlyname.JPG" alt="Radiologia dento facial">
       </div>
-      <div class="header-title">
-        <h1 class="tit">RECIBOS</h1>
+      <div class="header-title  header-column">
+        <h1 class="tit" id="receipttitle">RECIBOS</h1>
       </div>
-      <div class="header-menu">
+      <div class="header-menu  header-column">
         <div class="main-nav">
-            <a href="configuration.html">Configuración</a>
-            <a href="concepts.html">Conceptos</a>
-            <a href="help.html">Ayuda</a>
+          <a tabindex="27" href="configuration.html">Configuración</a>
+          <a tabindex="28" href="concepts.html">Cargos y Descuentos</a>
+          <a tabindex="29" href="help.html">Ayuda</a>
+		  <a tabindex="30" href="" onclick="openReceiptType(event,'note')">Acerca</a>
         </div>
       </div>
     </div>
-    </header>
-    <receiptclient>
-    <div class="receipt-client">
-      <div class="header-receipt-client">
-      </div>
-      <table border="0" cellpadding="0" cellspacing="0" class="table">
-        <tr>
-          <td rowspan="5" class="picture">
+  </div> <!--close header-->
+  <div class="grid-container">
+    <div class="tab not-print">
+      <button class="tablinks" tabindex="1" onclick="openReceiptType(event,'receipt')" id="defaultOpen">Recibos</button>
+      <button class="tablinks" tabindex="2" onclick="openReceiptType(event,'note')">Notas</button>
+    </div>
+    <div class="allreceipts">
+      <div class="receipt-client">
+        <div class="rec-header">
+          <div class="item-logo">
             <img class="logo" src="images/LogoRadiologiadentofacial.jpg" alt="Radilogia logo" />
-          </td>
-          <td class="space-busines-name"></p></td>
-          <td class="name">Martha Elena Robles Ramírez</td>
-          <td colspan="2" class="rfc">RFC. RORM 720323 L13</td>
-          <td class="space-busines-name"></p></td>
-        </tr>
-        <tr>
-          <td class="space-busines-name"></p></td>
-          <td class="address">Calz. Nacional 125, San Lorenzo<br>
-            Tula de Allende, Hidalgo. CP 42800</td>
-          <td colspan="2" class="tel">Tel. (773) 732 5784 / 773 178 6856<br>
-            radiologiaydiagnosticotula@hotmail.com</td>
-          <td class="space-busines-name"></p></td>
-        </tr>
-        <tr>
-          <td class="space-busines-name"></p></td>
-          <td class="address"></p></td>
-          <td class="space-before-"></p></td>
-          <td class="space-receipt"></p></td>
-          <td class="space-busines-name"></p></td>
-        </tr>
-        <tr>
-          <td class="space-busines-name"></p></td>
-          <td class="address"></p></td>
-          <td class="space-before-"></p></td>
-          <td colspan="2" class="receipt-title">RECIBO</td>
-        </tr>
-        <tr>
-          <td class="space-busines-name"></p></td>
-          <td class="address"></p></td>
-          <td class="space-before-"></p></td>
-          <td colspan="2" class="receipt-number" id="receipt-num-cli">No.</td>
-        </tr>
-      </table>
-      <table border="0" cellpadding="0" cellspacing="0" class="table">
-        <tr>
-          <td headers="clientHeader" class="client-name-cell">
-            Cliente: <br />
-            <input type="text" name="firstname" id="client-name-field-cli" class="client-name-field" oninput="copyName('client-name-field')">
-          </td>
-          <td headers="dateHeader" class="date-cell">
-            Fecha<br />
-            <input type="text" name="date" id="date-field-cli" class="date-field" onchange="copyName('date-field')" oninput="copyName('date-field')">
-          </td>
-        </tr>
-      </table>
-      
-      <table border="0" cellpadding="0" cellspacing="0" class="table">
-	      
-        <tr>
-          <td class="description-cell des-first-cell">
-            Descripción: <br />
-            <select size="1" name="descs" id="description-1-cli" onchange="getPrice('1')" class="description-combo">
-              <option value="" selected="selected"></option>
-            </select>
-          </td>
-          <td class="charge-cell charge-first-cell" headers="amountheader">
-            Importe: <br />
-
-            <input type="currency" name="price" id="price-field-1-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-1')" class="charge-field">
-	
-          </td>
-        </tr>
-        <tr>
-          <td class="description-cell with-fill">
-            <select size="1" name="descs" id="description-2-cli" onchange="getPrice('2')" class="description-combo with-fill">
-              <option value="" selected="selected"></option>
-            </select>
-          </td>
-          <td class="charge-cell with-fill">
-            <input type="currency" name="price" id="price-field-2-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-2')" class="charge-field with-fill">
-          </td>
-        </tr>
-        <tr>
-          <td class="description-cell">
-            <select size="1" name="descs" id="description-3-cli" onchange="getPrice('3')" class="description-combo">
-              <option value="" selected="selected"></option>
-            </select>
-          </td>
-          <td class="charge-cell">
-            <input type="currency" name="price" id="price-field-3-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-3')" class="charge-field">
-          </td>
-        </tr>
-        <tr>
-          <td class="description-cell with-fill">
-            <select size="1" name="descs" id="description-4-cli" onchange="getPrice('4')" class="description-combo with-fill">
-              <option value="" selected="selected"></option>
-            </select>
-          </td>
-          <td class="charge-cell with-fill">
-            <input type="currency" name="price" id="price-field-4-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-4')" class="charge-field with-fill">
-          </td>
-        </tr>
-        <tr>
-          <td class="description-cell">
-            <select size="1" name="descs" id="description-5-cli" onchange="getPrice('5')" class="description-combo">
-              <option value="" selected="selected"></option>
-            </select>
-          </td>
-          <td class="charge-cell">
-            <input type="currency" name="price" id="price-field-5-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-5')" class="charge-field">
-          </td>
-        </tr>
-        <tr>
-          <td class="description-cell des-last-cell with-fill">
-            <select size="1" name="descs" id="description-6-cli" onchange="getPrice('6')" class="description-combo with-fill">
-              <option value="" selected="selected"></option>
-            </select>
-          </td>
-          <td class="charge-cell charge-last-cell with-fill">
-            <input type="currency" name="price" id="price-field-6-cli" value="0.00" step="0.01" onchange="itemCharge('price-field-6')" class="charge-field with-fill">
-          </td>
-        </tr>
-        <tr>
-          <td class=" description-cell charge-letter-cell" id="amount-Letter-Header">
-            Importe con letra: <br />
-            <input type="text" name="amount" id="amount-letter-field-cli" cols="80" rows="1" class="charge-letter-field" oninput="copyName('amount-letter-field')">
-          </td>
-          <td class="charge-cell total-charge-cell" headers="amountheader">
-            Total: <br />
-            <input type="currency" name="total" id="price-field-7-cli" value="0.00" step="0.01"  class="total-charge-field" readonly>
-          </td>
-        </tr>
-      </table>
-     
-      <copybelongs>
-        <p class="copy">- Copia Cliente -</p>
-      </copybelongs>
-    </div>
-    </receiptclient>
-    <div class="buttons">
-      <p>
-        <button class="button" onclick="receiptNum(0)" type="button">Nuevo Recibo</button>
-        <button class="button" onclick="receiptNum(1)" type="button">Nuevo Recibo para Factura</button>
-        <button class="button" onclick="printReceipt()">Imprimir</button>
-      </p>
-   </div>
-
-
-   <receiptbusiness>
-    <div class="receipt-business">
-      <secondreceipt>
-        <div class="header-receipt-business">
+          </div>
+          <div class="name-rfc-address">
+            <div class="name-rfc">Martha Elena Robles Ramírez</div>
+            <div class="address">Calz. Nacional 125, San Lorenzo<br>Tula de Allende, Hidalgo. CP 42803</div>
+          </div>
+          <div class="rfc-tel">
+            <div class="rfc">RFC. RORM720322L13</div>
+            <div class="tel">Tel. (773) 732 5784 / 773 178 6856<br>rx.dentofacial@hotmail.com</div>
+          </div>
+          <!--div class="rfc-gap"></div-->
+          <div class="receipt-title-gap"></div>
+          <div class="receipt-title-number">
+            <div class="receipt-title" id="receipt-title-cli">RECIBO</div>
+            <div class="receipt-number">
+              <div name="receiptnumber" class="receipt-number-field receipt" id="receipt-num-cli-r">No.</div>
+              <div name="receiptnumber" class="receipt-number-field note" id="receipt-num-cli-n">No.</div>
+            </div>
+          </div>
+        </div> <!--rec-header-->
+        <div class="rec-name-date">
+          <div class="client-name-cell">
+            <div class="client-name-title-field">Cliente</div>
+            <div>
+              <input type="text" tabindex="3" name="firstname" id="client-name-field-cli-r" class="client-name-field receipt" oninput="copyName('client-name-field','values')">
+              <input type="text" tabindex="3" name="firstname" id="client-name-field-cli-n" class="client-name-field note" oninput="copyName('client-name-field','values')">
+            </div>
+          </div>
+          <div class="date-cell">
+            <div class="date-title-field">Fecha</div>
+            <div>
+              <input type="text" tabindex="23" name="date" id="date-field-cli-r" class="date-field receipt" onchange="copyName('date-field','values')" oninput="copyName('date-field','values')">
+              <input type="text" tabindex="23" name="date" id="date-field-cli-n" class="date-field note" onchange="copyName('date-field','values')" oninput="copyName('date-field','values')">
+            </div>
+          </div>
+        </div> <!--close rec-name-date-->
+        <div class="rec-items">
+          <div class="rec-quantities">
+            <div class="quantity-cell">Cantitdad</div>
+            <div class="quantity-cell">
+              <input type="number" tabindex="4" name="quantity-r" id="quantity-field-1-cli-r" value="0" step="1" onchange="itemCharge('1')" class="quantity-field receipt" min="1">
+              <input type="number" tabindex="4" name="quantity-n" id="quantity-field-1-cli-n" value="0" step="1" onchange="itemCharge('1')" class="quantity-field note" min="1">
+            </div>
+            <div class="quantity-cell with-fill">
+              <input type="number" tabindex="7" name="quantity-r" id="quantity-field-2-cli-r" value="0" step="1" onchange="itemCharge('2')" class="quantity-field receipt with-fill">
+              <input type="number" tabindex="7" name="quantity-n" id="quantity-field-2-cli-n" value="0" step="1" onchange="itemCharge('2')" class="quantity-field note with-fill">
+            </div>
+            <div class="quantity-cell">
+              <input type="number" tabindex="10" name="quantity-r" id="quantity-field-3-cli-r" value="0" step="1" onchange="itemCharge('3')" class="quantity-field receipt">
+              <input type="number" tabindex="10"  name="quantity-n" id="quantity-field-3-cli-n" value="0" step="1" onchange="itemCharge('3')" class="quantity-field note">
+            </div>
+            <div class="quantity-cell with-fill">
+              <input type="number" tabindex="13" name="quantity-r" id="quantity-field-4-cli-r" value="0" step="1" onchange="itemCharge('4')" class="quantity-field receipt with-fill ">
+              <input type="number" tabindex="13" name="quantity-n" id="quantity-field-4-cli-n" value="0" step="1" onchange="itemCharge('4')" class="quantity-field note with-fill">
+            </div>
+            <div class="quantity-cell">
+              <input type="number" tabindex="16" name="quantity-r" id="quantity-field-5-cli-r" value="0" step="1" onchange="itemCharge('5')" class="quantity-field receipt">
+              <input type="number" tabindex="16" name="quantity-n" id="quantity-field-5-cli-n" value="0" step="1" onchange="itemCharge('5')" class="quantity-field note">
+            </div>
+            <div class="quantity-cell quantity-last-cell with-fill">
+              <input type="number" tabindex="19" name="quantity-r" id="quantity-field-6-cli-r" value="0" step="1" onchange="itemCharge('6')" class="quantity-field receipt with-fill">
+              <input type="number" tabindex="19" name="quantity-n" id="quantity-field-6-cli-n" value="0" step="1" onchange="itemCharge('6')" class="quantity-field note with-fill">
+            </div>
+          </div>
+          <div class="rec-items-desc">
+            <div class="des-title-cell">Descripción</div>
+            <div class="description-cell">
+              <select size="1" tabindex="5" name="descs" id="description-1-cli-r" onchange="getPrice('1')" class="description-combo receipt">
+                <option value="" selected="selected"></option>
+              </select>
+              <select size="1" tabindex="5" name="descs" id="description-1-cli-n" onchange="getPrice('1')" class="description-combo note">
+                <option value="" selected="selected"></option>
+              </select>
+            </div>
+            <div class="description-cell with-fill">
+              <select size="1" tabindex="8" name="descs" id="description-2-cli-r" onchange="getPrice('2')" class="description-combo with-fill receipt">
+                <option value="" selected="selected"></option>
+              </select>
+              <select size="1" tabindex="8" name="descs" id="description-2-cli-n" onchange="getPrice('2')" class="description-combo with-fill note">
+                <option value="" selected="selected"></option>
+              </select>
+            </div>
+            <div class="description-cell">
+              <select size="1" tabindex="11" name="descs" id="description-3-cli-r" onchange="getPrice('3')" class="description-combo receipt">
+                <option value="" selected="selected"></option>
+              </select>
+              <select size="1" tabindex="11" name="descs" id="description-3-cli-n" onchange="getPrice('3')" class="description-combo note">
+                <option value="" selected="selected"></option>
+              </select>
+            </div>
+            <div class="description-cell with-fill">
+              <select size="1" tabindex="14" name="descs" id="description-4-cli-r" onchange="getPrice('4')" class="description-combo with-fill receipt">
+                <option value="" selected="selected"></option>
+              </select>
+              <select size="1" tabindex="14" name="descs" id="description-4-cli-n" onchange="getPrice('4')" class="description-combo with-fill note">
+                <option value="" selected="selected"></option>
+              </select>
+            </div>
+            <div class="description-cell">
+              <select size="1" tabindex="17" name="descs" id="description-5-cli-r" onchange="getPrice('5')" class="description-combo receipt">
+                <option value="" selected="selected"></option>
+              </select>
+              <select size="1" tabindex="17" name="descs" id="description-5-cli-n" onchange="getPrice('5')" class="description-combo note">
+                <option value="" selected="selected"></option>
+              </select>
+            </div>
+            <div class="description-cell des-last-cell with-fill">
+              <select size="1" tabindex="20" name="descs" id="description-6-cli-r" onchange="getPrice('6')" class="description-combo with-fill receipt">
+                <option value="" selected="selected"></option>
+              </select>
+              <select size="1" tabindex="20" name="descs" id="description-6-cli-n" onchange="getPrice('6')" class="description-combo with-fill note">
+                <option value="" selected="selected"></option>
+              </select>
+            </div>
+          </div>
+          <div class="rec-items-price">
+            <div class="price-title-cell">Precio</div>
+            <div class="price-cell">
+              <input type="currency" tabindex="6" name="item-price-r" id="itemprice-field-1-cli-r" value="0.00" step="0.01" onchange="itemCharge('1')" class="price-field receipt">
+              <input type="currency" tabindex="6" name="item-price-n" id="itemprice-field-1-cli-n" value="0.00" step="0.01" onchange="itemCharge('1')" class="price-field note">
+            </div>
+            <div class="price-cell with-fill">
+              <input type="currency" tabindex="9" name="item-price-r" id="itemprice-field-2-cli-r" value="0.00" step="0.01" onchange="itemCharge('2')" class="price-field receipt with-fill">
+              <input type="currency" tabindex="9" name="item-price-n" id="itemprice-field-2-cli-n" value="0.00" step="0.01" onchange="itemCharge('2')" class="price-field note with-fill">
+            </div>
+            <div class="price-cell">
+              <input type="currency" tabindex="12" name="item-price-r" id="itemprice-field-3-cli-r" value="0.00" step="0.01" onchange="itemCharge('3')" class="price-field receipt">
+              <input type="currency" tabindex="12" name="item-price-n" id="itemprice-field-3-cli-n" value="0.00" step="0.01" onchange="itemCharge('3')" class="price-field note">
+            </div>
+            <div class="price-cell with-fill">
+              <input type="currency" tabindex="15" name="item-price-r" id="itemprice-field-4-cli-r" value="0.00" step="0.01" onchange="itemCharge('4')" class="price-field receipt with-fill">
+              <input type="currency" tabindex="15" name="item-price-n" id="itemprice-field-4-cli-n" value="0.00" step="0.01" onchange="itemCharge('4')" class="price-field note with-fill">
+            </div>
+            <div class="price-cell">
+              <input type="currency" tabindex="18" name="item-price-r" id="itemprice-field-5-cli-r" value="0.00" step="0.01" onchange="itemCharge('5')" class="price-field receipt">
+              <input type="currency" tabindex="18" name="item-price-n" id="itemprice-field-5-cli-n" value="0.00" step="0.01" onchange="itemCharge('5')" class="price-field note">
+            </div>
+            <div class="price-cell itemprice-last-cell with-fill">
+              <input type="currency" tabindex="21" name="item-price-r" id="itemprice-field-6-cli-r" value="0.00" step="0.01" onchange="itemCharge('6')" class="price-field receipt with-fill">
+              <input type="currency" tabindex="21" name="item-price-n" id="itemprice-field-6-cli-n" value="0.00" step="0.01" onchange="itemCharge('6')" class="price-field note with-fill">
+            </div>
+          </div>
+          <div class="rec-item-charge">
+            <div class="charge-title-cell">Importe</div>
+            <div class="charge-cell">
+              <div name="price-r" id="price-field-1-cli-r" class="charge-field receipt"></div>
+              <div name="price-n" id="price-field-1-cli-n" class="charge-field note"></div>
+            </div>
+            <div class="charge-cell with-fill">
+              <div name="price-r" id="price-field-2-cli-r" class="charge-field with-fill receipt"></div>
+              <div name="price-n" id="price-field-2-cli-n" class="charge-field with-fill note"></div>
+            </div>
+            <div class="charge-cell">
+              <div name="price-r" id="price-field-3-cli-r" class="charge-field receipt"></div>
+              <div name="price-n" id="price-field-3-cli-n" class="charge-field note"></div>
+            </div>
+            <div class="charge-cell with-fill">
+              <div name="price-r" id="price-field-4-cli-r" class="charge-field with-fill receipt"></div>
+              <div name="price-n" id="price-field-4-cli-n" class="charge-field with-fill note"></div>
+            </div>
+            <div class="charge-cell">
+              <div name="price-r" id="price-field-5-cli-r" class="charge-field receipt"></div>
+              <div name="price-n" id="price-field-5-cli-n" class="charge-field note"></div>
+            </div>
+            <div class="charge-cell charge-last-cell with-fill">
+              <div name="price-r" id="price-field-6-cli-r" class="charge-field with-fill receipt"></div>
+              <div name="price-n" id="price-field-6-cli-n" class="charge-field with-fill note"></div>
+            </div>
+          </div>
         </div>
-        <table border="0" cellpadding="0" cellspacing="0" class="table">
-          <tr>
-            <td rowspan="5" class="picture">
-              <img src="images/LogoRadiologiadentofacial.jpg" alt="Radilogia logo" />
-            </td>
-            <td class="space-busines-name"></p></td>
-            <td class="name">Martha Elena Robles Ramírez</td>
-            <td colspan="2" class="rfc">RFC. RORM 720323 L13</td>
-            <td class="space-busines-name"></p></td>
-          </tr>
-          <tr>
-            <td class="space-busines-name"></p></td>
-            <td class="address">Calz. Nacional 125, San Lorenzo<br>
-              Tula de Allende, Hidalgo. CP 42800</td>
-            <td colspan="2" class="tel">Tel. (773) 732 5784 / 773 178 6856<br>
-              radiologiaydiagnosticotula@hotmail.com</td>
-            <td class="space-busines-name"></p></td>
-          </tr>
-          <tr>
-            <td class="space-busines-name"></p></td>
-            <td class="address"></p></td>
-            <td class="space-before-"></p></td>
-            <td class="space-receipt"></p></td>
-            <td class="space-busines-name"></p></td>
-          </tr>
-          <tr>
-            <td class="space-busines-name"></p></td>
-            <td class="address"></p></td>
-            <td class="space-before-"></p></td>
-            <td colspan="2" class="receipt-title">RECIBO</td>
-          </tr>
-          <tr>
-            <td class="space-busines-name"></p></td>
-            <td class="address"></p></td>
-            <td class="space-before-"></p></td>
-            <td colspan="2" class="receipt-number" id="receipt-num-bus">No.</td>
-          </tr>
-        </table>
-        <table border="0" cellpadding="0" cellspacing="0" class="table">
-          <tr>
-            <td headers="clientHeader" class="client-name-cell">
-              Cliente: <br />
-              <input type="text" name="firstname" id="client-name-field-bus" class="client-name-field">
-            </td>
-            <td headers="dateHeader" class="date-cell">
-              Fecha<br />
-              <input type="text" name="date" id="date-field-bus" class="date-field">
-            </td>
-          </tr>
-        </table>
-        <table border="0" cellpadding="0" cellspacing="0" class="table">
-          <tr>
-            <td class="description-cell des-first-cell">
-              Descripción: <br />
-              <input type="text" name="description-1-bus" id="description-1-bus" class="description-item">
-            </td>
-            <td class="charge-cell charge-first-cell" headers="amountheader">
-              Importe: <br />
-              <input type="currency" id="price-field-1-bus" value="0.00" step="0.01" class="charge-field-item" />
-            </td>
-          </tr>
-          <tr>
-            <td class="description-cell with-fill">
-              <input id="description-2-bus" class="description-item with-fill" />
-            </td>
-            <td class="charge-cell with-fill">
-              <input type="currency" id="price-field-2-bus" value="0.00" step="0.01" class="charge-field with-fill">
-            </td>
-          </tr>
-          <tr>
-            <td class="description-cell">
-              <input id="description-3-bus" class="description-item" />
-            </td>
-            <td class="charge-cell">
-              <input type="text" id="price-field-3-bus" value="0.00" step="0.01" class="charge-field">
-            </td>
-          </tr>
-          <tr>
-            <td class="description-cell with-fill">
-              <input id="description-4-bus" class="description-item with-fill" />
-            </td>
-            <td class="charge-cell with-fill">
-              <input type="text" id="price-field-4-bus" value="0.00" step="0.01"  class="charge-field-item with-fill">
-            </td>
-          </tr>
-          <tr>
-            <td class="description-cell">
-              <input id="description-5-bus" class="description-item" />
-            </td>
-            <td class="charge-cell">
-              <input type="text" id="price-field-5-bus" value="0.00" step="0.01"  class="charge-field">
-            </td>
-          </tr>
-          <tr>
-            <td class="description-cell des-last-cell with-fill">
-              <input id="description-6-bus" class="description-item with-fill" />
-            </td>
-            <td class="charge-cell charge-last-cell with-fill">
-              <input type="text" id="price-field-6-bus" value="0.00" step="0.01" class="charge-field-item with-fill">
-            </td>
-          </tr>
-          <tr>
-            <td class="description-cell charge-letter-cell" id="amount-Letter-Header">
-              Importe con letra: <br />
-              <input type="text" name="amount" id="amount-letter-field-bus" cols="80" rows="1" class="description-item">
-            </td>
-            <td class="charge-cell total-charge-cell" headers="amountheader">
-              Total: <br />
-              <input type="text" name="total" id="price-field-7-bus" value="0.00" step="0.01" class="total-charge-field" readonly>
-            </td>
-          </tr>
-        </table>
-        <copybelongs>
-          <p class="copy">- Copia Negocio -</p>
-        </copybelongs>
-        <script>
-          inicializeReceipts();
-        </script>
-      </secondreceipt>
+        <div class="rec-disc-subtotal">
+          <div class="rec-discount">
+            <div class="discount-title-cell">Descuentos</div>
+            <div class="discount-cell">
+              <select size="1" tabindex="22" name="discnts" id="discount-cli-r" onchange="getDiscount()" class="discount-combo receipt">
+                <option value="" selected="selected"></option>
+              </select>
+              <select size="1" tabindex="22" name="discnts" id="discount-cli-n" onchange="getDiscount()" class="discount-combo note">
+                <option value="" selected="selected"></option>
+              </select>
+            </div>
+          </div>
+          <div class="rec-subtotal">
+            <div class="subtotal-tittle-charge-cell">SubTotal:</div>
+            <div class="subtotal-charge-cell">
+              <div id="subtotal-cli-r" class="subtotal-charge-field receipt"></div>
+              <div id="subtotal-cli-n" class="subtotal-charge-field note"></div>
+            </div>
+            <div class="discount-tittle-charge-cell">Descuento:</div>
+            <div class="discount-charge-cell">
+              <div id="discount-charge-cli-r" class="discount-charge-field receipt"></div>
+              <div id="discount-charge-cli-n" class="discount-charge-field note"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rec-total">
+          <div class="rec-letter-cell">
+            <div class="total-title-letter-cell">Importe con letra: </div>
+            <div class="total-letter-cell" id="amount-Letter-Header">
+              <div class="total-letter-field receipt" name="amount" id="amount-letter-field-cli-r"></div>
+              <div class="total-letter-field note" name="amount" id="amount-letter-field-cli-n"></div>
+            </div>
+          </div>
+          <div class="rec-total-cell">
+            <div class="total-tittle-charge-cell">Total: </div>
+            <div class="total-charge-cell" headers="amountheader">
+              <div id="total-cli-r" class="total-charge-field receipt"></div>
+              <div id="total-cli-n" class="total-charge-field note"></div>
+            </div>
+          </div>
+        </div>
+        <div class="copy justprint">- Cliente -</div>
+      </div> <!--receipt-client close-->
+
+
+      <div class="receipt-business  justprint">
+        <div class="rec-header">
+          <div class="item-logo">
+            <img class="logo" src="images/LogoRadiologiadentofacial.jpg" alt="Radilogia logo" />
+          </div>
+          <div class="name-rfc-address">
+            <div class="name-rfc">Martha Elena Robles Ramírez</div>
+            <div class="address">Calz. Nacional 125, San Lorenzo<br>Tula de Allende, Hidalgo. CP 42800</div>
+          </div>
+          <div class="rfc-tel">
+            <div class="rfc">RFC. RORM 720323 L13</div>
+            <div class="tel">Tel. (773) 732 5784 / 773 178 6856<br>radiologiaydiagnosticotula@hotmail.com</div>
+          </div>
+          <!--div class="rfc-gap"></div-->
+          <div class="receipt-title-gap"></div>
+          <div class="receipt-title-number">
+            <div class="receipt-title" id="receipt-title-bus">RECIBO</div>
+            <div class="receipt-number">
+              <div name="receiptnumber" class="receipt-number-field" id="receipt-num-bus">No.</div>
+            </div>
+          </div>
+        </div> <!--rec-header-->
+        <div class="rec-name-date">
+          <div class="client-name-cell">
+            <div class="client-name-title-field">Cliente</div>
+            <div id="client-name-field-bus" class="client-name-field bus"></div>
+          </div>
+          <div class="date-cell">
+            <div class="date-title-field">Fecha</div>
+            <div name="date" id="date-field-bus" class="date-field bus"></div>
+          </div>
+        </div> <!--close rec-name-date-->
+        <div class="rec-items">
+          <div class="rec-quantities">
+            <div class="quantity-cell">Cantitdad</div>
+            <div class="quantity-cell">
+              <div name="quantity" id="quantity-field-1-bus" class="quantity-field bus"></div>
+            </div>
+            <div class="quantity-cell with-fill">
+              <div name="quantity" id="quantity-field-2-bus" class="quantity-field bus with-fill"></div>
+            </div>
+            <div class="quantity-cell">
+              <div name="quantity" id="quantity-field-3-bus" class="quantity-field bus"></div>
+            </div>
+            <div class="quantity-cell with-fill">
+              <div name="quantity" id="quantity-field-4-bus" class="quantity-field bus with-fill"></div>
+            </div>
+            <div class="quantity-cell">
+              <div name="quantity" id="quantity-field-5-bus" class="quantity-field bus"></div>
+            </div>
+            <div class="quantity-cell quantity-last-cell with-fill">
+              <div name="quantity" id="quantity-field-6-bus" class="quantity-field bus with-fill"></div>
+            </div>
+          </div>
+          <div class="rec-items-desc">
+            <div class="des-title-cell">Descripción</div>
+            <div class="description-cell">
+              <div name="description-1-bus" id="description-1-bus" class="description-combo bus"></div>
+            </div>
+            <div class="description-cell with-fill">
+              <div name="description-2-bus" id="description-2-bus" class="description-combo bus with-fill"></div>
+            </div>
+            <div class="description-cell">
+              <div name="description-2-bus" id="description-3-bus" class="description-combo bus"></div>
+            </div>
+            <div class="description-cell with-fill">
+              <div name="description-2-bus" id="description-4-bus" class="description-combo bus with-fill"></div>
+            </div>
+            <div class="description-cell">
+              <div name="description-2-bus" id="description-5-bus" class="description-combo bus"></div>
+            </div>
+            <div class="description-cell des-last-cell with-fill">
+              <div name="description-2-bus" id="description-6-bus" class="description-combo bus with-fill"></div>
+            </div>
+          </div>
+          <div class="rec-items-price">
+            <div class="price-title-cell">Precio</div>
+            <div class="price-cell">
+              <div name="item-price" id="itemprice-field-1-bus" class="price-field bus"></div>
+            </div>
+            <div class="price-cell with-fill">
+              <div name="item-price" id="itemprice-field-2-bus" class="price-field bus with-fill"></div>
+            </div>
+            <div class="price-cell">
+              <div name="item-price" id="itemprice-field-3-bus" class="price-field bus"></div>
+            </div>
+            <div class="price-cell with-fill">
+              <div name="item-price" id="itemprice-field-4-bus" class="price-field bus with-fill"></div>
+            </div>
+            <div class="price-cell">
+              <div name="item-price" id="itemprice-field-5-bus" class="price-field bus"></div>
+            </div>
+            <div class="price-cell itemprice-last-cell with-fill">
+              <div name="item-price" id="itemprice-field-6-bus" class="price-field bus with-fill"></div>
+            </div>
+          </div>
+          <div class="rec-item-charge">
+            <div class="charge-title-cell">Importe</div>
+            <div class="charge-cell">
+              <div name="price" id="price-field-1-bus" class="charge-field"></div>
+            </div>
+            <div class="charge-cell with-fill">
+              <div name="price" id="price-field-2-bus" class="charge-field with-fill"></div>
+            </div>
+            <div class="charge-cell">
+              <div name="price" id="price-field-3-bus" class="charge-field"></div>
+            </div>
+            <div class="charge-cell with-fill">
+              <div name="price" id="price-field-4-bus" class="charge-field with-fill"></div>
+            </div>
+            <div class="charge-cell">
+              <div name="price" id="price-field-5-bus" class="charge-field"></div>
+            </div>
+            <div class="charge-cell charge-last-cell with-fill">
+              <div name="price" id="price-field-6-bus" class="charge-field with-fill"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rec-disc-subtotal">
+          <div class="rec-discount">
+            <div class="discount-title-cell">Descuentos</div>
+            <div class="discount-cell">
+              <div id="discount-bus" class="discount-combo  bus"></div>
+            </div>
+          </div>
+          <div class="rec-subtotal">
+            <div class="subtotal-tittle-charge-cell">SubTotal:</div>
+            <div class="subtotal-charge-cell">
+              <div id="subtotal-bus" class="subtotal-charge-field"></div>
+            </div>
+            <div class="discount-tittle-charge-cell">Descuento:</div>
+            <div class="discount-charge-cell">
+              <div id="discount-charge-bus" class="discount-charge-field bus"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rec-total">
+          <div class="rec-letter-cell">
+            <div class="total-title-letter-cell">Importe con letra: </div>
+            <div class="total-letter-cell" id="amount-Letter-Header">
+              <div class="total-letter-field" name="amount" id="amount-letter-field-bus"></div>
+            </div>
+          </div>
+          <div class="rec-total-cell">
+            <div class="total-tittle-charge-cell">Total: </div>
+            <div class="total-charge-cell" headers="amountheader">
+              <div id="total-bus" class="total-charge-field"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copy justprint">- Negocio -</div>
+      </div> <!--close receipt-business-->
+    </div> <!-- close allreceipts-->
+    <div class="receiptbuttons not-print">
+      <div class="button-clear">
+        <button id="new-receipt-note" tabindex="24" class="button" onclick="clearFields()" type="button">Nuevo Recibo</button>
+      </div>
+      <div class="button-folio">
+        <button class="button receipt" tabindex="25" onclick="receiptNum(1)" type="button">Asignar Folio</button>
+        <button class="button note" tabindex="25" onclick="receiptNum(0)" type="button">Asignar Folio</button>
+      </div>
+      <div class="button-print">
+        <button class="button" tabindex="26" onclick="printReceipt()">Imprimir</button>
+      </div>
+    </div> <!--close buttons-->
+  </div> <!--close grid-container-->
+  <div class="modals not-print">
+    <div id="modal-confirm" class="modal">
+      <div class="modal-content">
+        <div class="modal-close-div">
+          <span id="modal-close-confirm" class="modal-close">&times;</span>
+        </div>
+        <h2 id="modal-confirm-title">Confirmar</h2>
+        <div id="modal-confirm-message"></div>
+        <div id="modal-buttons">
+          <div id="modal-confirm-buttons" class="modal-buttons">
+            <input id="modal-yes" tabindex="30"  type="button" value="Si" class="button button-modal ">
+            <input id="modal-no" tabindex="31" type="button" value="No" class="button button-modal">
+          </div>
+        </div>
+      </div>
     </div>
-    </receiptbusiness>
+    <div id="modal-message" class="modal">
+      <div class="modal-content modal-content-message">
+        <div class="modal-close-div">
+          <span id="modal-close-message"class="modal-close">&times;</span>
+        </div>
+        <h2 id="modal-title">Aviso</h2>
+        <div id="modal-message-message"></div>
+        <div id="modal-buttons">
+          <div id="modal--message-buttons" class="modal-buttons">
+            <input id="modal-ok" tabindex="32"  type="button" value="Aceptar" class="button button-modal ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-<footer>
-  <p/>
-  <p>Copyright &copy; 2018-2019 Roher Soluciones S de RL de CV.</p>
-
-
+<footer class="not-print">
+  <p>Copyright &copy; 2018-2019 V2.1 Roher Soluciones S de RL de CV.</p>
 </footer>
 
 </html>

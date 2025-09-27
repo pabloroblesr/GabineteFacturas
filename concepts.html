@@ -1,101 +1,311 @@
-    <!DOCTYPE html>
-    <html xmlns="http://www.w3.org/1999/xhtml" lang="es-MX">
-    <head>
-      <title>Cargos - Recibos Gabinete</title>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" href="receipts.css" type="text/css" media="screen">
-      <script type="text/javascript" src="receipts.js"></script>
-    </head>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-MX">
 
-    <body  id="concepts-page">
-      <div class="header">
-        <div class="header-row grid-container">
-          <div class="header-text header-column">
-            <img class="header-face" src="images/onlyface.jpg" alt="Radilogia logo" />
-            <img class="header-img-receipts" src="images/onlyname.JPG" alt="Radiologia dento facial">
-          </div>
-          <div class="header-title  header-column">
-            <h1 class="tit" id="receipttitle">CARGOS Y DESCUENTOS</h1>
-          </div>
-          <div class="header-menu  header-column">
-            <div class="main-nav">
-              <a href="receipts.html">Recibos</a>
-              <a href="configuration.html">Configuración</a>
-              <a href="help.html">Ayuda</a>
-            </div>
-          </div>
+<head>
+  <title>Cargos - Recibos Gabinete</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+  <script type="text/javascript" src="javascript.js"></script>
+</head>
+
+<body id="concepts-page">
+  <div class="header">
+    <div class="header-row grid-container">
+      <div class="header-text header-column">
+        <img class="header-face" src="images/onlyface.jpg" alt="Radilogia logo" />
+        <img class="header-img-receipts" src="images/onlyname.JPG" alt="Radiologia dento facial">
+      </div>
+      <div class="header-title  header-column">
+        <h1 class="tit" id="receipttitle">CARGOS Y DESCUENTOS</h1>
+      </div>
+      <div class="header-menu  header-column">
+        <div class="main-nav">
+          <a href="receipts.html">Recibos</a>
+          <a href="configuration.html">Configuración</a>
+          <a href="help.html">Ayuda</a>
         </div>
-      </div> <!--close header-->
-      <div class="charges-concepts">
-        <div class="concepts-discounts-title">Cargos</div>
-        <div class="all-concepts-table">
-          <table id="tableConcepts" class="concepts-discounts-table">
-            <col class="concepts-col1">
-            <col class="concepts-col2">
-            <col class="concepts-col3">
-            <tr class="concepts-header">
-              <th class="no-header">No.</th>
-              <th class="concepts-header">Cargo</th>
-              <th class="amount-header">Precio</th>
-            </tr>
-  <tr><td>1</td><td>Aleta de Mordida</td><td>$ 80.00</td></tr><tr><td>2</td><td>Caldwell</td><td>$ 240.00</td></tr><tr><td>3</td><td>Cefalometría Digital</td><td>$ 100.00</td></tr><tr><td>4</td><td>Dígito palmar (Mano)</td><td>$ 240.00</td></tr><tr><td>5</td><td>Hirtz</td><td>$ 240.00</td></tr><tr><td>6</td><td>Impresas Costo Extra</td><td>$ 400.00</td></tr><tr><td>7</td><td>Impresion en Cd</td><td>$ 50.00</td></tr><tr><td>8</td><td>Impresion en Pape</td><td>$ 230.00</td></tr><tr><td>9</td><td>Lateral de Cráneo</td><td>$ 240.00</td></tr><tr><td>10</td><td>Lateral Oblicua de Mandibula</td><td>$ 240.00</td></tr><tr><td>11</td><td>Oclusal</td><td>$ 230.00</td></tr><tr><td>12</td><td>Ortopantomografia, Lateral de Cráneo, Fotos y Modelos</td><td>$ 850.00</td></tr><tr><td>13</td><td>Ortopantomografía (Panorámica)</td><td>$ 230.00</td></tr><tr><td>14</td><td>Periapical</td><td>$ 80.00</td></tr><tr><td>15</td><td>Postero Anterior de Cráneo</td><td>$ 240.00</td></tr><tr><td>16</td><td>Radiografía ATM Dinámica</td><td>$ 240.00</td></tr><tr><td>17</td><td>Serie Periapical</td><td>$ 700.00</td></tr><tr><td>18</td><td>Tomografía 3D en CD</td><td>$ 1500.00</td></tr><tr><td>19</td><td>Towne</td><td>$ 240.00</td></tr><tr><td>20</td><td>Waters</td><td>$ 240.00</td></tr><tr><td>21</td><td>Zócalo de Plástico</td><td>$ 230.00</td></tr><tr><td>22</td><td>Zócalo de Yeso</td><td>$ 230.00</td></tr>    </table>
+      </div>
     </div>
+  </div>
+  <!--close header-->
+  <div class="charges-concepts">
+    <div class="concepts-discounts-title">Cargos</div>
+    <div class="all-concepts-table">
+      <table id="tableConcepts" class="concepts-discounts-table">
+        <col class="concepts-col1">
+        <col class="concepts-col2">
+        <col class="concepts-col3">
+        <tr class="concepts-header">
+          <th class="no-header">No.</th>
+          <th class="concepts-header">Cargo</th>
+          <th class="amount-header">Precio</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2da Cefalometría Digital</td>
+          <td>$ 50.00</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Aleta de Mordida</td>
+          <td>$ 100.00</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Antero Posterior A.P.</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Caldwell</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Cefalometría Digital</td>
+          <td>$ 100.00</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Cepillo de Dientes</td>
+          <td>$ 35.00</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Cubrebocas</td>
+          <td>$ 5.00</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Dígito palmar (Mano)</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Estudio para ortodoncia</td>
+          <td>$ 850.00</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Fotografia Clínica</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Hirtz</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Impresas Costo Extra (Tomografía)</td>
+          <td>$ 400.00</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Impresion en Cd</td>
+          <td>$ 50.00</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Impresion en Papel</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>Interpretación</td>
+          <td>$ 450.00</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>Kit Senos Paranasales </td>
+          <td>$ 800.00</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>Lateral de Cráneo</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>Lateral Oblicua de Mandibula</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>Memoria USB</td>
+          <td>$ 100.00</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>Modelos de estudio</td>
+          <td>$ 280.00</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>Modelos de Trabajo</td>
+          <td>$ 200.00</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>Oclusal</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td>Ortopantomografia, Lateral de Cráneo, Fotografía clínica</td>
+          <td>$ 750.00</td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td>Ortopantomografía</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>Ortopantomografía, Lateral de Cráneo</td>
+          <td>$ 500.00</td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td>Ortopantomografía, Modelos de Estudio</td>
+          <td>$ 530.00</td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td>Periapical</td>
+          <td>$ 100.00</td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td>Postero Anterior de Cráneo P.A.</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>29</td>
+          <td>Radiografía ATM Dinámica</td>
+          <td>$ 260.00</td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td>Serie Periapical</td>
+          <td>$ 700.00</td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td>Tomografia 5x5</td>
+          <td>$ 1000.00</td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td>Tomografia Bimaxilar</td>
+          <td>$ 1500.00</td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td>Tomografia Unimaxilar</td>
+          <td>$ 1250.00</td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td>Tomografía 3D en CD</td>
+          <td>$ 1500.00</td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td>Towne</td>
+          <td>$ 250.00</td>
+        </tr>
+        <tr>
+          <td>36</td>
+          <td>Waters</td>
+          <td>$ 250.00</td>
+        </tr>
+      </table>
     </div>
-    <div class="discount-concepts">
+  </div>
+  <div class="discount-concepts">
     <div class="concepts-discounts-title">Descuentos</div>
     <div class="all-discounts-table">
-    <table id="tableDiscounts" class="concepts-discounts-table">
-      <col class="col1">
-      <col class="col2">
-      <col class="col3">
-      <col class="col4">
-      <tr class="concepts-header">
-        <th class="no-header">No.</th>
-        <th class="concepts-header">Cargo</th>
-        <th class="amount-header">Descuento</th>
-        <th class="discount-type-header">Tipo</th>
-      </tr>
-  <tr><td>1</td><td>Descuento Buen Cliente $5.00</td><td>$ 5.00</td><td>Absoluto</td></tr><tr><td>2</td><td>Descuento Doctor $160.00</td><td>$ $160.0</td><td>Absoluto</td></tr><tr><td>3</td><td>Descuento Estudiantes 10%</td><td>10%</td><td>Relativo</td></tr><tr><td>4</td><td>Descuento INAPAN 15%</td><td>15%</td><td>Relativo</td></tr>          </table>
+      <table id="tableDiscounts" class="concepts-discounts-table">
+        <col class="col1">
+        <col class="col2">
+        <col class="col3">
+        <col class="col4">
+        <tr class="concepts-header">
+          <th class="no-header">No.</th>
+          <th class="concepts-header" &Cargo</th> <th class="amount-header">Descuento</th>
+          <th class="discount-type-header">Tipo</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Descuento 25</td>
+          <td>25%</td>
+          <td>Relativo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Descuento 30</td>
+          <td>30%</td>
+          <td>Relativo</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Descuento 50</td>
+          <td>50%</td>
+          <td>Relativo</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Inapam Panorámica</td>
+          <td>$ 40.00</td>
+          <td>Absoluto</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Inapam Periapical</td>
+          <td>$ 10.00</td>
+          <td>Absoluto</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="button-concept-div">
+    <input type="button" onclick="openModalConfirm('loadConcepts()','Todos los cargos y descuentos que están en memoria se reemplarán por los que se muestran en la página.<p> ¿Deseas continuar?')" value="Cargar a Memoria" class="button button-conf button-concept">
+  </div>
+  <div class=modals>
+    <div id="modal-confirm" class="modal">
+      <div class="modal-content">
+        <div class="modal-close-div">
+          <span id="modal-close-confirm" class="modal-close">×</span>
+        </div>
+        <h2 id="modal-confirm-title">Confirmar</h2>
+        <div id="modal-confirm-message"></div>
+        <div id="modal-buttons">
+          <div id="modal-confirm-buttons" class="modal-buttons">
+            <input id="modal-yes" type="button" value="Si" class="button button-modal ">
+            <input id="modal-no" type="button" value="No" class="button button-modal">
+          </div>
         </div>
       </div>
-      <div class="button-concept-div">
-        <input type="button" onclick="openModalConfirm('loadConcepts()','Todos los cargos y descuentos que están en memoria se reemplarán por los que se muestran en la página.<p> ¿Deseas continuar?')"
-          value="Cargar a Memoria" class="button button-conf button-concept">
+    </div>
+    <div id="modal-message" class="modal">
+      <div class="modal-content modal-content-message">
+        <div class="modal-close-div">
+          <span id="modal-close-message" class="modal-close">×</span>
+        </div>
+        <h2 id="modal-title">Aviso</h2>
+        <div id="modal-message-message"></div>
+        <div id="modal-buttons">
+          <div id="modal--message-buttons" class="modal-buttons">
+            <input id="modal-ok" type="button" value="Aceptar" class="button button-modal ">
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+</body>
+<footer>
+  <p>Copyright © 2018-2019 V2.1 Roher Soluciones S de RL de CV</p>
+</footer>
 
-      <div class=modals>
-        <div id="modal-confirm" class="modal">
-          <div class="modal-content">
-            <div class="modal-close-div">
-              <span id="modal-close-confirm" class="modal-close">&times;</span>
-            </div>
-            <h2 id="modal-confirm-title">Confirmar</h2>
-            <div id="modal-confirm-message"></div>
-            <div id="modal-buttons">
-              <div id="modal-confirm-buttons" class="modal-buttons">
-                <input id="modal-yes"  type="button" value="Si" class="button button-modal ">
-                <input id="modal-no" type="button" value="No" class="button button-modal">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="modal-message" class="modal">
-          <div class="modal-content modal-content-message">
-            <div class="modal-close-div">
-              <span id="modal-close-message"class="modal-close">&times;</span>
-            </div>
-            <h2 id="modal-title">Aviso</h2>
-            <div id="modal-message-message"></div>
-            <div id="modal-buttons">
-              <div id="modal--message-buttons" class="modal-buttons">
-                <input id="modal-ok"  type="button" value="Aceptar" class="button button-modal ">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </body>
-    <footer>
-      <p>Copyright © 2018-2019 V2.0 Roher Soluciones S de RL de CV</p>
-    </footer>
-  </html>
+</html>

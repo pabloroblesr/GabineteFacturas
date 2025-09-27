@@ -9,136 +9,333 @@
 </head>
 
 <body  id="configuration-page">
-  <div class="container">
-    <header>
-    <div class="header-row">
-      <div class="header-text header-text-conf">
-        <img class="header-img-configure" src="images/LogoRadiologiadentofacial.JPG">
+  <div class="header">
+    <div class="header-row grid-container">
+      <div class="header-text header-column">
+        <img class="header-face" src="images/onlyface.jpg" alt="Radilogia logo" />
+        <img class="header-img-receipts" src="images/onlyname.JPG" alt="Radiologia dento facial">
       </div>
-      <div class="header-title header-tittle-conf">
-        <h1 class="tit tit-conf">CONFIGURACIÓN</h1>
+      <div class="header-title  header-column">
+        <h1 class="tit" id="receipttitle">CONFIGURACIÓN</h1>
       </div>
-      <div class="header-menu header-menu-conf">
+      <div class="header-menu  header-column">
         <div class="main-nav">
-            <a href="receipts.html">Recibos</a>
-            <a href="notes.html">Notas</a>
-            <a href="concepts.html">Conceptos</a>
-            <a href="help.html">Ayuda</a>
+          <a href="receipts.html">Recibos</a>
+          <a href="concepts.html">Cargos y Descuentos</a>
+          <a href="help.html">Ayuda</a>
         </div>
       </div>
     </div>
-    </header>
-
-  <div>
-    <fieldset>
-      <legend>Números de recibos</legend>
-      <p />
-      <label>Cambio de prefijo para recibos sin factura</label>
-      <input type="text" id="no-invoice-prefix">
-      <input type="button" onclick="changePrefix()" value="Cambiar Prefijo" class="button button-conf">
-      <p />
-      <label>Siguiente número para recibo sin factura</label>
-      <input type="number" id="num-receipt-no-invoice" value="1">
-      <input type="button" onclick="changeReciptNum(0)" value="Cambiar número" class="button button-conf">
-      <p/>
-      <label>Siguiente número para recibo con factura</label>
-      <input type="number" id="num-receipt-invoice" value="1">
-      <input type="button" onclick="changeReciptNum(1)" value="Cambiar número" class="button button-conf">
-      <p />
-      <messagecorrect id="message-number-correct"></messagecorrect>
-      <messageerror id="message-number-error"></messageerror>
-    </fieldset>
-      <p />
-      <fieldset>
-        <legend>Agregar, Modificar o Borrar Concepto</legend>
-        <label>Descripción</label>
-        <select size="1" name="descs" id="descs" onchange="getConcept()">
-          <option value="" selected="selected"></option>
-        </select>
-        <p/>Concepto:
-        <input type="text" id="concept-name" name="format" value="" oninput="setNullComboBox()"/>
-        <p/>Precio:
-        <input type="currency" id="price-amount" value="0.00" step="0.01" onchange="chargeFormat('price-amount')">
-
-        <p/>
-        <input id="addButton" type="button" onclick="addNewConcept()" value="Agregar" class="button button-conf">
-        <input id="updateButton" type="button" onclick="updateConcept()" value="Modificar" class="button button-conf">
-        <input id="removeButton"type="button" onclick="deleteConcept()" value="Borrar" class="button button-conf">
-        <p />
-        <messagecorrect id="message-concept-correct"></messagecorrect>
-        <messageerror id="message-concept-error"></messageerror>
-      </fieldset>
-      <p />
-      <fieldset>
-        <legend>Importar y Exportar archivo de configuración</legend>
-        <p />
-          <input type="button" onclick="goToConepts()" value="Ir a importar archivo" class="button button-conf">
-          <input type="button" onclick="download()" value="Salvar a archvio" class="button button-conf">
-          <p />
-          <messagecorrect id="message-file-correct"></messagecorrect>
-          <messageerror id="message-file-error"></messageerror>
-      </fieldset>
-  </div>
-  <script>inicializeConfigData()</script>
-  <textarea class="textarea" id="before-table" rows="40" cols="500">
+  </div> <!--close header-->
+  <div class="containers">
+    <div class="folescontainer">
+      <div class="receipts-number-prefix">
+        <div class="folesprefixtitle">Configuracion de folios y prefijo</div>
+        <div class="foles folprebox">
+          <div class="folestitle">Folios</div>
+          <div class="no-invoicefole innerbox">
+            <div class="notefole">Notas:</div>
+            <div class="notenumber">
+              <input type="number" id="num-receipt-no-invoice" value="1"  class="foletextbox">
+            </div>
+            <div class="notechangebutton">
+              <input type="button" onclick="changeReceiptNum(0)" value="Cambiar Folio" class="button button-conf">
+            </div>
+          </div>
+          <div class="invoicefole innerbox">
+            <div class="receiptfole">Recibos:</div>
+            <div class="receiptnumber">
+              <input type="number" id="num-receipt-invoice" value="1"  class="foletextbox">
+            </div>
+            <div class="receiptchangebutton">
+              <input type="button" onclick="changeReceiptNum(1)" value="Cambiar Folio" class="button button-conf">
+            </div>
+          </div>
+          <div class="folio-legend">
+            Nota: El número escrito sera el siguiente folio en la factura o nota.
+          </div>
+        </div> <!--close foles-->
+        <div class="prefix folprebox">
+          <div class="prefixtitle">Prefijo</div>
+          <div class="prefix-box innerbox">
+            <div class="prefixlabel">Prefijo para notas:</div>
+            <div class="prefixvalue">
+              <input type="text" id="no-invoice-prefix" class="foletextbox">
+            </div>
+            <div class="prefixbutton">
+              <input type="button" onclick="changePrefix()" value="Cambiar Prefijo" class="button button-conf">
+            </div>
+          </div>
+        </div>
+      </div> <!--receipts-number-prefix-->
+    </div> <!--close folescointer-->
+    <div class="conceptcontainer">
+      <div class="config-title">Cargos</div>
+      <div class="config-box">
+        <div class="config-inner-tittle">Agregar, Cambiar o Borrar Cargos</div>
+        <div class="config-configuration">
+          <div class="config-lists">
+            <select size="15" name="descs" id="descs" onchange="getSelectedItem('descs')">
+            </select>
+          </div>
+          <div class="config-action-buttons">
+            <div class="configAddButton">
+              <input id="descsConfigAddButton" type="button" onclick="enableUpAdDel('add','descs')" value="Agregar" class="button button-conf-aud">
+            </div>
+            <div class="configUpdateButton">
+              <input id="descsConfigUpdateButton" type="button" onclick="enableUpAdDel('update','descs')" value="Modificar" class="button button-conf-aud">
+            </div>
+            <div class="configDeleteButton">
+              <input id="descsConfigDeleteButton"type="button" onclick="enableUpAdDel('delete','descs')" value="Borrar" class="button button-conf-aud">
+            </div>
+          </div>
+          <div id="descs-config" class="config-config">
+            <div id="descsConfigBox" class="configconfigbox">
+              <div id="descsconfigconfiginnerbox" class="configconfiginnerbox">
+                <div id=descsInnerConfigBox  class="configinnerconfigbox">
+                  <div id="descsActionTitle" class="config-action-title">Crear cargo</div>
+                  <div id="descsTextLabel" class="config-text-label">Descripción del Cargo</div>
+                  <div id="descsInputText" class="config-input-text">
+                    <input type="text" id="descs-name" name="format" value=""/>
+                  </div>
+                  <div id="descsAmountLabel" class="config-amount-label">Monto</div>
+                  <div id="descsInputAmount" class="config-input-amount">
+                    <input type="text" id="descs-amount" onchange="chargeFormat('descs-amount')">
+                  </div>
+                  <div class="config-addupddel">
+                    <input id="descsSaveButton" type="button" onclick="configureConceptDiscount('add','descs');" value="Agregar" class="button button-conf-aud">
+                    <input id="descsUpdateButton" type="button" onclick="configureConceptDiscount('update','descs');" value="Modificar" class="button button-conf-aud">
+                  </div>
+                  <div class="config-cancel">
+                    <input id="descsCancelButton" type="button" onclick="enableUpAdDel('cancel','descs','descs');" value="Cancelar" class="button button-conf-aud">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- close conceptcontainer-->
+    <div class="conceptcontainer">
+      <div class="config-title">Descuentos</div>
+      <div class="config-box">
+        <div class="config-inner-tittle">Agregar, Cambiar o Borrar Descuento</div>
+        <div class="config-configuration">
+          <div class="config-lists">
+            <select size="15" name="discnts" id="discnts" onchange="getSelectedItem('discnts')">
+            </select>
+          </div>
+          <div class="config-action-buttons">
+            <div class="configAddButton">
+              <input id="discntsConfigAddButton" type="button" onclick="enableUpAdDel('add','discnts')" value="Agregar" class="button button-conf-aud">
+            </div>
+            <div class="configUpdateButton">
+              <input id="discntsConfigUpdateButton" type="button" onclick="enableUpAdDel('update','discnts')" value="Modificar" class="button button-conf-aud">
+            </div>
+            <div class="configDeleteButton">
+              <input id="discntsConfigDeleteButton"type="button" onclick="enableUpAdDel('delete','discnts')" value="Borrar" class="button button-conf-aud">
+            </div>
+          </div>
+          <div id="discnts-config" class="config-config">
+            <div id="discntsConfigBox" class="configconfigbox">
+              <div id="discntsconfigconfiginnerbox" class="configconfiginnerbox">
+                <div id=discntsInnerConfigBox class="configinnerconfigbox">
+                  <div id="discntsActionTitle" class="config-action-title">Agregar Descuento</div>
+                  <div id="discntsTextLabel" class="config-text-label">Descripción del Descuento</div>
+                  <div id="discntsInputText" class="config-input-text">
+                    <input type="text" id="discnts-name" name="format" value=""/>
+                  </div>
+                  <div id="discntsTypes" class="discounts-types">
+                    <div class="discntsTypeLabel">Tipo de descuento: </div>
+                    <div class="discntsTypesRadios">
+                      <form>
+                        <input id="discntTypeRel" type="radio" name="choice" onclick="getProperFormat()">Relativo
+                        <input id="discntTypeAbs" type="radio" name="choice" onclick="getProperFormat()">Absoluto
+                      </form>
+                    </div>
+                  </div>
+                  <div id="discntsAmountLabel" class="config-amount-label">Monto</div>
+                  <div id="discntsInputAmount" class="config-input-amount">
+                    <input type="text" id="discnts-amount" onchange="getProperFormat()">
+                  </div>
+                  <div class="config-addupddel">
+                    <input id="discntsUpdateButton" type="button" onclick="configureConceptDiscount('update','discnts')" value="Modificar" class="button button-conf-aud">
+                    <input id="discntsSaveButton" type="button" onclick="configureConceptDiscount('add','discnts')" value="Agregar" class="button button-conf-aud">
+                  </div>
+                  <div class="config-cancel">
+                    <input id="discntsCancelButton" type="button" onclick="enableUpAdDel('cancel','discnts');" value="Cancelar" class="button button-conf-aud">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- close conceptcontainer-->
+    <div class="importexport">
+      <div class="importexporttitle">Importar y Exportar archivo de configuración</div>
+      <div class="importexportbox">
+        <div class="importbox">
+          <div class="importitle">Importar</div>
+          <div class="importbutton">
+            <input type="button" onclick="goToConepts()" value="Ir a importar" class="button button-conf">
+            <div class="importexportdesc">Te lleva a la página para cargar a memoria todos los cargos que se muestran en la página.</div>
+          </div>
+        </div>
+        <div class="exportbox">
+          <div class="importitle">Exportar</div>
+          <div class="exportbutton">
+            <input type="button" onclick="download()" value="Salvar a archivo" class="button button-conf">
+          </div>
+          <div class="importexportdesc">Guarda todos los cargos que se muestran en la lista de configuración de cargos en un archivo en la carpeta de "Descargas" en la computadora</div>
+        </div>
+        <div class="exportimportspacer"</div>
+      </div>
+    </div>
+  </div> <!-- close container-->
+  <!--script>inicializeConfigData()</script-->
+  <textarea class="textarea justtosave" id="before-table" rows="40" cols="500">
     &lt!DOCTYPE html&gt
     &lthtml xmlns="http://www.w3.org/1999/xhtml" lang="es-MX"&gt
-
     &lthead&gt
-      &lttitle&gtConceptos - Recibos Gabinete&lt/title&gt
+      &lttitle&gtCargos - Recibos Gabinete&lt/title&gt
       &ltmeta charset="UTF-8"&gt
       &ltlink rel="stylesheet" href="style.css" type="text/css" media="screen"&gt
       &ltscript type="text/javascript" src="javascript.js"&gt&lt/script&gt
     &lt/head&gt
 
-    &ltbody id="concepts-page"&gt
-      &ltdiv class="container"&gt
-        &ltheader&gt
-        &ltdiv class="header-row"&gt
-          &ltdiv class="header-text header-text-conf"&gt
-            &ltimg class="header-img-configure" src="images/LogoRadiologiadentofacial.JPG"&gt
+    &ltbody  id="concepts-page"&gt
+      &ltdiv class="header"&gt
+        &ltdiv class="header-row grid-container"&gt
+          &ltdiv class="header-text header-column"&gt
+            &ltimg class="header-face" src="images/onlyface.jpg" alt="Radilogia logo" /&gt
+            &ltimg class="header-img-receipts" src="images/onlyname.JPG" alt="Radiologia dento facial"&gt
           &lt/div&gt
-          &ltdiv class="header-title header-tittle-conf"&gt
-            &lth1 class="tit tit-conf"&gtCONCEPTOS&lt/h1&gt
+          &ltdiv class="header-title  header-column"&gt
+            &lth1 class="tit" id="receipttitle"&gtCARGOS Y DESCUENTOS&lt/h1&gt
           &lt/div&gt
-          &ltdiv class="header-menu header-menu-conf"&gt
+          &ltdiv class="header-menu  header-column"&gt
             &ltdiv class="main-nav"&gt
-                &lta href="receipts.html"&gtRecibos&lt/a&gt
-                &lta href="configuration.html"&gtConfiguración&lt/a&gt
-                &lta href="help.htm"&gtAyuda&lt/a&gt
+              &lta href="receipts.html"&gtRecibos&lt/a&gt
+              &lta href="configuration.html"&gtConfiguración&lt/a&gt
+              &lta href="help.html"&gtAyuda&lt/a&gt
             &lt/div&gt
           &lt/div&gt
         &lt/div&gt
-        &lt/header&gt
-
-      &ltdiv class="all-concepts-table"&gt
-        &ltp/&gt
-        &lttable id="tableConcepts" class="concepts-table"&gt
-          &lttr class="concepts-header"&gt
-            &ltth class="no-header"&gtNo.&lt/th&gt
-            &ltth class="concept-header"&gtConcepto&lt/th&gt
-            &ltth class="price-header"&gtPrecio&lt/th&gt
-          &lt/tr&gt
-</textarea>
-<textarea class="textarea" id="after-table" rows="10" cols="500">
+      &lt/div&gt &lt!--close header--&gt
+      &ltdiv class="charges-concepts"&gt
+        &ltdiv class="concepts-discounts-title"&gtCargos&lt/div&gt
+        &ltdiv class="all-concepts-table"&gt
+          &lttable id="tableConcepts" class="concepts-discounts-table"&gt
+            &ltcol class="concepts-col1"&gt
+            &ltcol class="concepts-col2"&gt
+            &ltcol class="concepts-col3"&gt
+            &lttr class="concepts-header"&gt
+              &ltth class="no-header"&gtNo.&lt/th&gt
+              &ltth class="concepts-header"&gtCargo&lt/th&gt
+              &ltth class="amount-header"&gtPrecio&lt/th&gt
+            &lt/tr&gt
+  </textarea>
+  <textarea class="textarea justtosave" id="middle-table" rows="10" cols="500">
     &lt/table&gt
-  &lt/div&gt
-&lt/p&gt
-  &ltinput type="button" onclick="loadConcepts()" value="Importar Archivo" class="button button-conf button-concept"&gt
-&lt/p&gt
-  &ltmessageconcepts id="message-file"&gt&lt/messageconcepts&gt
-  &ltscript&gtresetConcepts()&lt/script&gt
-&lt/body&gt
-&ltfooter&gt
-  &ltp&gtCopyright &ampcopy; 2018-2019 Roher Soluciones S de RL de CV&lt/p&gt
-&lt/footer&gt
-&lt/html&gt
+    &lt/div&gt
+    &lt/div&gt
+    &ltdiv class="discount-concepts"&gt
+    &ltdiv class="concepts-discounts-title"&gtDescuentos&lt/div&gt
+    &ltdiv class="all-discounts-table"&gt
+    &lttable id="tableDiscounts" class="concepts-discounts-table"&gt
+      &ltcol class="col1"&gt
+      &ltcol class="col2"&gt
+      &ltcol class="col3"&gt
+      &ltcol class="col4"&gt
+      &lttr class="concepts-header"&gt
+        &ltth class="no-header"&gtNo.&lt/th&gt
+        &ltth class="concepts-header"&Cargo&lt/th&gt
+        &ltth class="amount-header"&gtDescuento&lt/th&gt
+        &ltth class="discount-type-header"&gtTipo&lt/th&gt
+      &lt/tr&gt
+  </textarea>
+  <textarea class="textarea justtosave" id="after-table" rows="10" cols="500">
+          &lt/table&gt
+        &lt/div&gt
+      &lt/div&gt
+      &ltdiv class="button-concept-div"&gt
+        &ltinput type="button" onclick="openModalConfirm('loadConcepts()','Todos los cargos y descuentos que están en memoria se reemplarán por los que se muestran en la página.&ltp&gt ¿Deseas continuar?')"
+          value="Cargar a Memoria" class="button button-conf button-concept"&gt
+      &lt/div&gt
+      &ltdiv class=modals&gt
+        &ltdiv id="modal-confirm" class="modal"&gt
+          &ltdiv class="modal-content"&gt
+            &ltdiv class="modal-close-div"&gt
+              &ltspan id="modal-close-confirm" class="modal-close"&gt&times;&lt/span&gt
+            &lt/div&gt
+            &lth2 id="modal-confirm-title"&gtConfirmar&lt/h2&gt
+            &ltdiv id="modal-confirm-message"&gt&lt/div&gt
+            &ltdiv id="modal-buttons"&gt
+              &ltdiv id="modal-confirm-buttons" class="modal-buttons"&gt
+                &ltinput id="modal-yes"  type="button" value="Si" class="button button-modal "&gt
+                &ltinput id="modal-no" type="button" value="No" class="button button-modal"&gt
+              &lt/div&gt
+            &lt/div&gt
+          &lt/div&gt
+        &lt/div&gt
+        &ltdiv id="modal-message" class="modal"&gt
+          &ltdiv class="modal-content modal-content-message"&gt
+            &ltdiv class="modal-close-div"&gt
+              &ltspan id="modal-close-message"class="modal-close"&gt&times;&lt/span&gt
+            &lt/div&gt
+            &lth2 id="modal-title"&gtAviso&lt/h2&gt
+            &ltdiv id="modal-message-message"&gt&lt/div&gt
+            &ltdiv id="modal-buttons"&gt
+              &ltdiv id="modal--message-buttons" class="modal-buttons"&gt
+                &ltinput id="modal-ok"  type="button" value="Aceptar" class="button button-modal "&gt
+              &lt/div&gt
+            &lt/div&gt
+          &lt/div&gt
+        &lt/div&gt
+      &lt/div&gt
+    &lt/body&gt
+    &ltfooter&gt
+      &ltp&gtCopyright &copy; 2018-2019 V2.1 Roher Soluciones S de RL de CV&lt/p&gt
+    &lt/footer&gt
+  &lt/html&gt
 </textarea>
-<textarea class="textarea" id="all-table" rows="80" cols="500">
+<textarea class="textarea justtosave" id="all-table" rows="80" cols="500">
 </textarea>
+<div class=modals>
+  <div id="modal-confirm" class="modal">
+    <div class="modal-content">
+      <div class="modal-close-div">
+        <span id="modal-close-confirm" class="modal-close">&times;</span>
+      </div>
+      <h2 id="modal-confirm-title">Confirmar</h2>
+      <div id="modal-confirm-message"></div>
+      <div id="modal-buttons">
+        <div id="modal-confirm-buttons" class="modal-buttons">
+          <input id="modal-yes"  type="button" value="Si" class="button button-modal ">
+          <input id="modal-no" type="button" value="No" class="button button-modal">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-message" class="modal">
+    <div class="modal-content modal-content-message">
+      <div class="modal-close-div">
+        <span id="modal-close-message"class="modal-close">&times;</span>
+      </div>
+      <h2 id="modal-title">Aviso</h2>
+      <div id="modal-message-message"></div>
+      <div id="modal-buttons">
+        <div id="modal--message-buttons" class="modal-buttons">
+          <input id="modal-ok"  type="button" value="Aceptar" class="button button-modal ">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 <footer>
-  <p>Copyright &copy; 2018-2019 Roher Soluciones S de RL de CV.</p>
+  <p>Copyright &copy; 2018-2019 V2.1 Roher Soluciones S de RL de CV.</p>
 </footer>
 
 </html>

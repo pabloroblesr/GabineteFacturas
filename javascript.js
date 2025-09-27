@@ -1,15 +1,45 @@
 
-
-
 var conceptsArray = [];
 var pricesArray = [];
 var incomingPage="concepts.html";
+
+
+window.onload = function(){
+  var pagetype = document.getElementById("pagetype").innerHTML;
+  console.log("window.onload -> field: receipt-num"+pagetype+" | " + localStorage.getItem("receipt-num"+pagetype));
+  document.getElementById("receipt-num-cli").innerHTML = localStorage.getItem("receipt-num"+pagetype);
+  copyName("receipt-num","inner");
+  console.log("field: date-field"+pagetype+" | " + localStorage.getItem("date-field"+pagetype));
+  document.getElementById("date-field-cli").value = localStorage.getItem("date-field"+pagetype);
+  copyName("date-field","values");
+  /*
+  var selects = "";
+  var prices = "";
+  var i = 1;
+  for (; i < 7; i++) {
+    selects = "description-" + i + "-cli";
+    prices = "price-field-" + i + "-cli";
+    document.getElementById("description-" + i + "-cli").value = "0";
+    document.getElementById("description-" + i + "-bus").value = "";
+    document.getElementById("price-field-" + i + "-cli").value = "";
+    copyName("price-field-" + i);
+  }
+  document.getElementById("price-field-7-cli").value = "";
+  copyName("price-field-7");
+  document.getElementById("client-name-field-cli").value = "";
+  copyName("client-name-field");
+  document.getElementById("date-field-cli").value = "";
+  copyName("date-field");
+  document.getElementById("amount-letter-field-cli").value = "";
+  copyName("amount-letter-field");
+  */
+}
 
 /* Function to inilize the combo box and clear all textFields
    Used: receipts.html
 */
 function inicializeReceipts() {
-  clearFields();
+  //clearFields();
   fillConceptsArray();
   var i=1;
   for (;i<7;i++) {
@@ -84,6 +114,7 @@ function displayConcepts(name) {
    Used: receipts.html
 */
 function clearFields() {
+  console.log("clearFields ->")
   var selects = "";
   var prices = "";
   var i = 1;
@@ -93,23 +124,26 @@ function clearFields() {
     document.getElementById("description-" + i + "-cli").selectedIndex = "0";
     document.getElementById("description-" + i + "-bus").value = "";
     document.getElementById("price-field-" + i + "-cli").value = "";
-    copyName("price-field-" + i);
+    copyName("price-field-" + i,"values");
   }
   document.getElementById("price-field-7-cli").value = "";
-  copyName("price-field-7");
+  copyName("price-field-7","values");
   document.getElementById("client-name-field-cli").value = "";
-  copyName("client-name-field");
+  copyName("client-name-field","values");
   document.getElementById("date-field-cli").value = "";
-  copyName("date-field");
+  copyName("date-field","values");
   document.getElementById("amount-letter-field-cli").value = "";
-  copyName("amount-letter-field");
+  copyName("amount-letter-field","values");
 }
 
 /* Function to get the new receipt number non billiable and billiable
    Used: receipts.html
 */
 function receiptNum(invoice) {
+  console.log("receiptNum ->")
   var nexnumber;
+  var pagetype = document.getElementById("pagetype").innerHTML;
+  clearFields();
   if (typeof(Storage) !== "undefined") {
     if (invoice == 0) {
       if (localStorage.nonBillReceiptNum) {
@@ -130,14 +164,15 @@ function receiptNum(invoice) {
       nextnumber = localStorage.billReceiptNum;
     }
     document.getElementById("receipt-num-cli").innerHTML = "No. " + nextnumber;
-    document.getElementById("receipt-num-bus").innerHTML = "No. " + nextnumber;
+    //document.getElementById("receipt-num-bus").innerHTML = "No. " + nextnumber;
   } else {
     document.getElementById("receipt-num-cli").innerHTML = "ERROR";
-    document.getElementById("receipt-num-bus").innerHTML = "ERROR";
+    //document.getElementById("receipt-num-bus").innerHTML = "ERROR";
   }
-  clearFields();
-  document.getElementById("date-field-cli").value = getTodayDate();
-  copyName("date-field");
+  copyName("receipt-num", "inner");
+  //localStorage.setItem("receipt-num" + pagetype, nextnumber);
+  document.getElementById("date-field-cli").value = getTodayDate();;
+  copyName("date-field", "values");
 }
 
 /* Function that gets today date
@@ -159,6 +194,7 @@ function getTodayDate() {
    Used: receipts.html
 */
 function findTotal() {
+  console.log("findTotal ->")
   var arr = document.getElementsByName('price');
   var tot = 0;
   for (var i = 0; i < arr.length; i++) {
@@ -168,19 +204,20 @@ function findTotal() {
   }
   var floatNumber = tot / 100;
   document.getElementById('price-field-7-cli').value = giveFormat(floatNumber);
-  copyName("price-field-7");
+  copyName("price-field-7","values");
 }
 
 /* Function to get the price from the combo box selection
    Used: receipts.html
 */
 function getPrice(rowNum) {
+  console.log("getPrice ->")
   var selectNum = "description-" + rowNum;
   var priceNum = "price-field-" + rowNum;
   var selects = document.getElementById(selectNum + "-cli");
   var conceptSel = selects.value;
   var chargeValue = localStringToNumber(pricesArray[conceptSel]);
-  console.log("value: " + conceptSel);
+  //console.log("value: " + conceptSel);
   if (conceptSel != "") {
 	document.getElementById(priceNum + "-cli").value = giveFormat(chargeValue);
   }
@@ -188,7 +225,9 @@ function getPrice(rowNum) {
 	  document.getElementById(priceNum + "-cli").value  = "";
   }
   document.getElementById(selectNum + "-bus").value = conceptSel;
-  copyName(priceNum);
+  localStorage.setItem(selectNum + "-bus", conceptSel);
+  var name = localStorage.getItem(selectNum + "-bus");
+  copyName(priceNum, "values");
   findTotal();
 }
 
@@ -227,19 +266,20 @@ function giveFormat(value) {
 }
 
 
-/* Function to evaluate the item charge 
+/* Function to evaluate the item charge
    Used: receipts.html
 */
 function itemCharge(priceNum) {
+  console.log("itemCharge ->")
 	chargeFormat(priceNum + "-cli");
-	copyName(priceNum);
+	copyName(priceNum, "values");
 	findTotal();
 }
 
 /* Function to change the format of the charge.
    Used: receipt.html
 */
-function chargeFormat(priceNum) {	
+function chargeFormat(priceNum) {
   var value = giveFormat(document.getElementById(priceNum).value);
   document.getElementById(priceNum).value = value;
   return value;
@@ -255,9 +295,17 @@ function printReceipt() {
 /* Function to copy the values from client receipt to business receipt
    Used: receripts.hmtl
 */
-function copyName(inputField) {
+function copyName(inputField, source) {
+  var pagetype = document.getElementById("pagetype").innerHTML;
   var inputFieldBus = inputField + "-bus";
-  document.getElementById(inputFieldBus).value = document.getElementById(inputField + "-cli").value;
+  var values= document.getElementById(inputField + "-cli").value;
+  if (source == "inner") {
+    values=document.getElementById(inputField + "-cli").innerHTML;
+  }
+  //document.getElementById(inputFieldBus).value = document.getElementById(inputField + "-cli").value;
+  localStorage.setItem(inputField  + pagetype, values);
+  var name = localStorage.getItem(inputField  + pagetype);
+  console.log("inputfield: "+ inputField + pagetype + " |copyname:" + name);
 }
 
 
@@ -435,7 +483,7 @@ function updateConcept() {
     nam: document.getElementById("concept-name").value,
     pric: chargeFormat("price-amount")
   };
-  
+
   if (concept.nam.length == 0) {
     write("message-concept-error", "En el campo \"Concepto\" es mandatorio tener un valor.");
     return;
@@ -446,7 +494,7 @@ function updateConcept() {
   document.getElementById("price-amount").value = "";
   document.getElementById("concept-name").value = "";
   write("message-concept-correct", "!Concepto \"" + concept.nam + "\" cambiado!");
- 
+
 }
 
 /* Function delete concept from the concepts.
@@ -533,6 +581,3 @@ function resetConcepts() {
     document.body.removeChild(element);
     write("message-file-correct", "Archivo \"concepts.xml\" fue exportado exitosamente.")
   }
-  
-
-

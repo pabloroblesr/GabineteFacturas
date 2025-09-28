@@ -1,64 +1,94 @@
-.container {
-  height: 600px;
-  width: 950px;
-}
 
+/**header style*/
 .header-row {
-  max-width: 950px;
-  height: 150px;
-  margin-left: 0px;
-  margin: auto;
+  display: grid;
+  border-style: none none solid none;
+  border-width: 25px;
+  border-color: rgb(0, 102, 194);
 }
 
 .header-text {
-  width: 200px;
-  height: 100px;
-  display: inline-block;
-  vertical-align: top;
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
 }
-.header-text-conf {
-  width: 150px;
+
+.header-face {
+  width: 100px;
+  height: 150px;
 }
 
 .header-img-receipts {
   width: 200px;
   height: 100px;
-  margin-top: 0px;
-  vertical-align: top;
 }
-
-.header-img-configure{
-  width: 150px;
-  height: 150px;
-  margin-top: 0px;
-  vertical-align: top;
-}
-
 .header-title {
-  width: 450px;
-  height: 150px;
-  display: inline-block;
-  vertical-align: top;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+  color: rgb(0, 102, 204);
+  font-size: 30px;
+  font-family: sans-serif;
 }
-.header-tittle-conf {
-  width: 540px;
+.header-menu {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: right;
 }
 
+.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  padding-top: 10px;
+}
+
+/** Grid separation */
 .tab {
-  overflow: hidden;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  float: left;
   border: 1px solid #ccc;
-  /*background-color: #f1f1f1;*/
+  background-color: #f1f1f1;
+  width: 130px;
+  height: 520px;
 }
 
+.allreceipts {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+  width: 1000px
+  /*border-style: solid;*/
+}
+
+.receiptbuttons {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+  display: grid;
+  grid-column-gap: 0px;
+  width: 877px;
+  padding-top: 20px;
+}
+
+
+/* tab style */
 .tab button {
   background-color: inherit;
   float: left;
+  color: black;
   border: none;
+  padding: 22px 16px;
+  width: 100%;
   outline: none;
+  text-align: left;
   cursor: pointer;
-  padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+}
+
+#new-receipt-note {
+  width: 150px;
 }
 
 .tab button:hover {
@@ -70,74 +100,497 @@
   background-color: #ccc;
 }
 
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+.tab button:focus {
+  background-color: #ddd;
 }
 
-.allreceipts {
-   padding-top: 50px;
+
+/****************/
+/* receipt tyle */
+/****************/
+
+.receipt-client {
+  display: grid;
+  grid-column-gap: 6px;
+  width: 880px;
+  padding-top: 10px;
 }
-.tit {
-  color: rgb(0, 102, 204);
-  font-size: 70px;
+
+.rec-header {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-column-gap: 30px;
+  width: 880px;
+  padding-top: 10px;
+}
+
+.item-logo {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  text-align: left;
+  width: 150px;
+  padding-bottom: 10px;
+
+}
+
+img.logo {
+  width: 150px;
+  height: 150px;
+}
+
+.name-rfc-address{
+  grid-column: 2;
+  grid-row: 1;
+  width: 275px;
+}
+.name-rfc {
   text-align: center;
-  margin-top: 0px;
-  vertical-align: top;
-  font-family: sans-serif;
+  font-size: 85%;
+  border-bottom-style: dotted;
+  border-bottom-color: blue;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
-.tit-conf {
-  font-size: 60px;
+.address {
+  font-size: 85%;
+  padding-top: 5px;
+  text-align: center;
+  padding-top: 10px;
 }
 
-.header-menu {
-  width: 250px;
-  height: 150;
-  display: inline-block;
+.rfc-tel {
+  grid-column: 3 / span 2;
+  grid-row: 1;
+  width: 275px;
 }
-.header-menu-conf {
-  width: 200px;
+.rfc {
+  font-size: 85%;
+  border-bottom-style: dotted;
+  border-bottom-color: blue;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
-.main-nav {
-  color: rgb(0, 102, 204);
-  text-decoration: none;
-  padding: 5px 20px;
-  font-family: "Roboto", sans-serif;
+.tel {
+  font-size: 85%;
+  padding-top: 5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.rfc-gap {
+  grid-column: 5;
+  grid-row: 1;
+  width: 150px;
+}
+.receipt-title-gap {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+  width: 420px;
+}
+
+.receipt-title-number {
+  grid-column: 4;
+  grid-row: 2;
+  width: 246px;
+  border: solid blue;
+  border-width: 2px 2px 1px 2px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.receipt-title {
+  letter-spacing: 3px;
+  text-align-last: center;
+  background: rgb(153, 204, 255);
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: solid;
+  border-bottom-color: blue;
+  border-bottom-width: 1px;
+  padding-top: 10px;
+  height: 30px;
+}
+
+.receipt-number {
+  vertical-align: middle;
+  padding-top: 10px;
+  color: red;
+  font-size: 140%;
+  text-align: center;
+  height: 25px;
+}
+
+.rec-name-date {
+  grid-column: 1;
+  grid-row: 2;
+  width: 876px;
+  border: solid blue;
+  border-width: 2px 2px 1px 2px;
+  border-radius: 10px 10px 0px 0px;
+  grid-gap: 0px;
+  display: grid;
+}
+
+.client-name-cell {
+  grid-column: 1;
+  grid-row: 1;
+  width: 564px;
+  height: 45px;
+  padding-left: 10px;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 2px;
+}
+
+.client-name-field {
+  font-size: 16px;
+  border: none;
+  width: 550px;
+  padding-top: 4px;
+}
+
+.date-cell {
+  grid-column: 2;
+  grid-row: 1;
+  width: 290px;
+  height: 45px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.date-field {
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  width: 276px;
+  padding-top: 4px;
+}
+
+.rec-items {
+  grid-column: 1;
+  grid-row: 3;
+  width: 876px;
+  border: solid blue;
+  border-width: 1px 2px 1px 2px;
+  border-radius: 0px 0px 10px 10px;
+  display: grid;
+}
+
+.rec-quantities {
+  grid-column: 1;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 1px;
+  width: 75px;
+}
+
+.quantity-cell {
+  width: 70px;
+  padding-left: 5px;
+  height:25px;
+}
+
+.quantity-last-cell {
+  border-radius: 0px 0px 0px 10px;
+}
+
+.quantity-field {
+  width: 65px;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.rec-items-desc {
+  grid-column: 2;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 1px;
+  width: 559px;
+}
+
+.des-title-cell {
+  padding-left: 10px;
+  text-align: left;
+  height:25px;
+}
+
+.description-cell {
+  padding-left: 10px;
+  height:25px;
+}
+
+.description-combo {
+  width: 539px;
+  font-size: 16px;
+  border: none;
+  padding-top: 4px;
+}
+
+.rec-items-price {
+  grid-column: 3;
+  width: 118px;
+  border-right: solid blue;
+  border-right-width: 2px;
+}
+
+.price-title-cell {
+  text-align: left;
+  padding-left: 10px;
+  height:25px;
+}
+
+.price-cell {
+  height:25px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.price-field {
+  width: 94px;
+  border: none;
+  font-size: 16px;
+  text-align: right;
+  padding-top: 4px;
+}
+
+.rec-item-charge {
+  grid-column: 4;
+  width: 120px;
+}
+
+.charge-title-cell {
+  text-align: left;
+  padding-left: 10px;
+  height:25px;
+}
+
+.charge-cell {
+  padding-left: 10px;
+  padding-right: 10px;
+  height:25px;
+}
+
+.charge-field {
+  width: 100px;
+  border: none;
+  font-size: 16px;
+  text-align: right;
+  padding-top: 2px;
+}
+
+.charge-last-cell {
+  border-radius: 0px 0px 10px 0px;
+}
+
+.rec-disc-subtotal {
+  grid-column: 1;
+  grid-row: 4;
+  width: 876px;
+  display: grid;
+  border: solid blue;
+  border-width: 1px 2px 1px 2px;
+  border-radius: 10px 10px 10px 10px;
+}
+.rec-discount {
+  grid-column: 1;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 1px;
+  width: 635px;
+}
+
+.discount-title-cell {
+  padding-left: 10px;
+  height: 25px;
+}
+
+.discount-cell {
+  padding-left: 10px;
+  height: 30px;
+}
+
+.discount-combo {
+  width: 615px;
+  font-size: 16px;
+  border: none;
+}
+
+.rec-subtotal {
+  grid-column: 2;
+  text-align: right;
+  border-left: solid blue;
+  border-left-width: 1px;
+  width: 239px;
+  display: grid;
+}
+
+.subtotal-tittle-charge-cell {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+  height:25px;
+  width: 109px;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+.subtotal-charge-cell {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+  height:25px;
+  width: 110px;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.discount-tittle-charge-cell {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: right;
+  width: 109px;
+  padding-right: 10px;
   font-size: 15px;
-  vertical-align: bottom;
+  height: 25px;
 }
 
-.main-nav a {
-  border: 1px solid rgb(0, 102, 204);
-  vertical-align: bottom;
+.discount-charge-cell {
+  grid-column: 2;
+  grid-row: 2;
+  width: 110px;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 16px;
 }
+
+.rec-total {
+  grid-column: 1;
+  grid-row: 5;
+  width: 876px;
+  display: grid;
+  border: solid blue;
+  border-width: 1px 2px 2px 2px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.rec-letter-cell {
+  grid-column: 1;
+  text-align: left;
+  border-right: solid blue;
+  border-right-width: 2px;
+  width: 635px;
+  display: grid;
+}
+
+.total-title-letter-cell {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.total-letter-cell {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: auto;
+}
+
+.total-letter-field {
+  border: none;
+  padding-top: 5px;
+  font-size: 16px;
+  text-align: left;
+  text-transform: lowercase;
+}
+
+.total-letter-field:first-letter {
+  text-transform: uppercase;
+}
+
+.rec-total-cell {
+  grid-column: 2 ;
+  width: 239px;
+  display: grid;
+  height: 50px;
+}
+
+.total-tittle-charge-cell {
+  grid-column: 1 ;
+  font-size: 20px;
+  width: 109px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.total-charge-cell {
+  grid-column: 2 ;
+  padding-right: 10px;
+  line-height: 50px;
+  width: 110px;
+  text-align: right;
+}
+
+.total-charge-field {
+    border: none;
+    font-size: 20px;
+    text-align: right;
+}
+
+.with-fill {
+  background: rgb(204, 229, 255);
+}
+
+/*format busines receipt */
+
+.receipt-business {
+  display: grid;
+  grid-column-gap: 6px;
+  width: 880px;
+  padding-top: 10px;
+}
+
+.bus {
+  padding-left: 2px;
+  padding-top: 2px;
+}
+
+/*****************/
+/*format buttons */
+/*****************/
 
 .buttons {
-  margin-left: 50px;
+  grid-column: 1;
+  grid-row: 6;
+  display: grid;
+  /*grid-gap: 5px;*/
+  grid-column-gap: 0px;
+  /*background-color: #2196F3;*/
+  width: 877px;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .button {
-  display: inline-block;
   padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
   color: #fff;
   background-color: #0066CC;
+  outline: none;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button-conf {
-  font-size: 14px;
-  padding: 5px 15px;
+.button:focus {
+  background-color: #004C99
 }
 
 .button:hover {
@@ -151,347 +604,682 @@
 .button:disabled {
   background-color: #D9E8F7
 }
+
 .button:active {
   background-color: #004C99;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-.button-concept {
-  margin-left: 350px;
-}
 
-.receipt-client {
-  width: 800px;
-  height: 500px;
-  margin-left: 50px;
-}
-
-.header-receipt-client {
-  display: none;
-}
-
-img.logo {
-  width: 150px;
-  height: 150px;
-}
-
-.name {
-  width: 275px;
-  font-size: 85%;
-  text-align: center;
-  height: 10px;
-  border-bottom: 3px dotted #1E90FF;
-  top-padding: 0px;
-  bottom-padding: 0px;
-  height: 10px;
-}
-
-.rfc {
-  width: 275px;
-  font-size: 85%;
-  text-align: center;
-  text-indent: 25px: height:15px;
-  border-bottom: 3px dotted #1E90FF;
-  left-padding: 10px;
-  right-padding: 10px;
-  height: 10px;
-}
-
-.tel {
-  width: 275px;
-  font-size: 85%;
-  height: 15px;
-  text-align: center;
-  left-padding: 20px;
-  right-padding: 10px;
-  height: 10px;
-  LINE-HEIGHT: 15px;
-}
-
-.address {
-  width: 275px;
-  font-size: 85%;
-  height: 15px;
-  text-align: center;
-  left-padding: 10px;
-  right-padding: 10px;
-  height: 10px;
-  LINE-HEIGHT: 15px;
-}
-
-.space {
-  width: 375px;
-  font-size: 85%;
-  height: 10px;
-  left-padding: 10px;
-  right-padding: 10px;
-  height: 10px;
-}
-.space-busines-name {
-  width: 50px;
-  font-size: 85%;
-  left-padding: 10px;
-  right-padding: 10px;
-}
-.space-before-receipt {
-  width: 100px;
-}
-.space-receipt {
-  width: 175x;
-}
-
-.receipt-title {
-  border: 1px solid blue;
-  border-radius: 10px 10px 0px 0px;
-  text-align-last: center;
-  background: rgb(153, 204, 255);
-  border-bottom-width: 0px;
-  width: 225px;
-  letter-spacing: 3px;
-  left-padding: 10px;
-  right-padding: 10px;
-  height: 40px;
-}
-.receipt-number {
-  border-collapse: collapse;
-  border-top: 1px solid blue;
-  border-right: 1px solid blue;
-  border-left: 1px solid blue;
-  border-bottom-width: 0px;
-  border-radius: 0px 0px 10px 10px;
-  text-align: center;
-  color: red;
-  font-size: 140%;
-  width: 225px;
-  left-padding: 10px;
-  right-padding: 10px;
-  height: 40px;
-}
-
-.client-name-cell {
-  width: 550px;
-  border-top: 1px solid blue;
-  border-right: 0px solid blue;
-  border-left: 1px solid blue;
-  border-bottom-width: 0px;
-  border-radius: 10px 0px 0px 10px;
-  padding-left: 12px;
-}
-
-.client-name-field {
-  width: 530px;
-  border: none;
-  font-size: 18px;
-}
-
-.date-cell {
-  width: 250px;
-  padding-left: 12px;
-  border-top: 1px solid blue;
-  border-right: 1px solid blue;
-  border-left: 1px solid blue;
-  border-bottom-width: 0px;
-  border-radius: 0px 10px 10px 0px
-}
-
-.date-field {
-  width: 230px;
-  border: none;
-  font-size: 18px;
+.button-clear {
+  grid-column: 1 ;
+  grid-row: 1;
   text-align: center;
 }
 
-.description-cell {
-  width: 650px;
-  border-right-width: 0px;
-  border-left: 1px solid blue;
-  padding-left: 12px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  height: 20px;
+.button-folio {
+  grid-column: 2 ;
+  grid-row: 1;
+  text-align: center;
 }
 
-.des-first-cell {
-  border-top: 1px solid blue;
-  border-radius: 10px 0px 0px 0px;
+.button-print {
+  grid-column: 3 ;
+  grid-row: 1;
+  text-align: center;
 }
 
-.des-last-cell {
-  border-bottom: 0px;
-  border-radius: 0px 0px 0px 10px;
-}
 
-.description-combo {
-  width: 630px;
-  font-size: 18px;
-  #border: none;
-  #-webkit-appearance: none;
-  #-moz-appearance: none;
-  #text-indent: 1px;
-  #text-overflow: '';
-}
-
-.charge-cell {
-  width: 150px;
-  border-right: 1px solid blue;
-  border-left: 1px solid blue;
-  padding-left: 5px;
-  padding-top: 0px;
-  padding-bottom: : 0px;
-  height: 20px;
-}
-
-.charge-first-cell {
-  border-top: 1px solid blue;
-  border-radius: 0px 10px 0px 0px;
-}
-.charge-last-cell {
-  border-bottom: 0px;
-  border-radius: 0px 0px 10px 0px;
-}
-
-.charge-field {
-  width: 130px;
-  #border: none;
-  font-size: 18px;
-  text-align: right;
-}
-
-.charge-letter-cell {
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue;
-  border-radius: 10px 0px 0px 10px;
-}
-
-.charge-letter-field {
-  width: 630px;
-  border: none;
-  font-size: 18px;
-}
-
-.total-charge-cell {
-  border-top: 1px solid blue;
-  border-bottom: 1px solid blue;
-  border-radius: 0px 10px 10px 0px;
-}
-
-.total-charge-field {
-  border: none;
-  width: 130px;
-  font-size: 18px;
-  text-align: right;
-}
-
-.description-item {
-  width: 630px;
-  font-size: 18px;
-  border: none;
-  #-webkit-appearance: none;
-  #-moz-appearance: none;
-  #text-indent: 1px;
-  #text-overflow: '';
-}
-
-.charge-field-item {
-  width: 130px;
-  border: none;
-  font-size: 18px;
-  text-align: right;
-}
-
-.description-item-fill {
-  width: 630px;
-  font-size: 18px;
-  border: none;
-  #-webkit-appearance: none;
-  #-moz-appearance: none;
-  #text-indent: 1px;
-  #text-overflow: '';
-}
-
-.charge-field-item-fill {
-  width: 130px;
-  border: none;
-  font-size: 18px;
-  text-align: right;
-}
-
-body {
-  background-image:linear-gradient(rgba(100,100,100,0.5),rgba(30,30,30,0.5),url("images/LogoRadiologiadentofacial.JPG"));
-  background-size: cover;
-  background-position: center;
-}
-
-messagecorrect {
-  font-size: 18px;
-  color: green;
-}
-messageerror {
-  font-size: 18px;
-  color: red;
-}
-
-messageconcepts {
-  ont-size: 18px;
-  color: green;
-  padding-left: 300px;
-}
-fieldset {
-    border: 1px solid #0066CC;
-}
-
-.buttons {
-  padding-left: 60px;
-}
-.new-concept-field {
-  width: 630px;
-  font-size: 14px;
-}
-.select-editable select:focus, .select-editable input:focus {
-    outline:none;
-}
-
+/* Just for print */
 .justprint {
   display: none;
 }
 
-.secondreceipt {
-  display: none;
+footer {
+  padding-top: 100px;
 }
 
-.all-concepts-table {
-  padding-left: 60px;
+/**********************/
+/* configuration page */
+/**********************/
+
+.receipts-number-prefix {
+  display: grid;
+  /*grid-gap: 5px;*/
+  padding: 30px;
+  grid-column-gap: 60px;
+  /*background-color: #2196F3;*/
 }
-.concepts-table th, .concepts-table td {
+.folesprefixtitle {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  font-size: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+.foles {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-column-gap: 10px;
+  text-align: center;
+}
+.prefix {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.folprebox {
+  border: solid;
+  border-color: #0066CC;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.folestitle {
+  grid-column: 1 / span 2 ;
+  grid-row: 1;
+  padding: 10px;
+}
+.no-invoicefole {
+  grid-column: 1 ;
+  grid-row: 2;
+}
+
+.invoicefole {
+  grid-column: 2 ;
+  grid-row: 2;
+}
+
+.folio-legend {
+  grid-column: 1 /span 2 ;
+  grid-row: 3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  padding-left:30px;
+}
+
+.folestitle, .prefixtitle {
+  font-size: 30px;
+  padding: 10px;
+  text-align: left;
+}
+
+.innerbox {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.notefole, .receiptfole, .prefixlabel{
+  font-size: 20px;
+}
+
+.foletextbox {
+  font-size: 20px;
+  width: 120px;
+  text-align: center
+}
+
+/*concepts section in configuration.html */
+.conceptcontainer, .importexport {
+  border-top-style: solid;
+  border-top-width: 5px;
+  border-top-color: rgb(0, 102, 194);
+  display: grid;
+  /*grid-gap: 5px;*/
+  padding: 30px;
+}
+
+.config-title, .importexporttitle {
+  grid-row: 1;
+  font-size: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.config-box  {
+  grid-row: 2;
+  display: grid;
+  border: solid;
+  border-color: #0066CC;
+  border-radius: 15px;
+}
+
+.config-inner-tittle {
+  grid-row: 1;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 30px;
+}
+
+.config-configuration {
+  grid-row: 2;
+  display: grid;
+  grid-column-gap: 60px;
+}
+
+.config-lists {
+  grid-column: 1;
+  padding: 10px;
+  width: 400px;
+  overflow-x: auto;
+}
+
+#descs, #discnts {
+  width: 400px;
+}
+
+.config-action-buttons {
+  grid-column: 2;
+  width: 110px;
+  display: grid;
+  grid-row-gap: 20px;
+}
+.configAddButton {
+  grid-row: 1;
+  width: 106px;
+  padding-top: 40px;
+}
+
+.configUpdateButton {
+  grid-row: 2;
+  width: 106px;
+}
+
+.configDeleteButton {
+  grid-row: 3;
+  width: 106px;
+  padding-bottom: 50px;
+}
+
+.config-config {
+  grid-column: 3 ;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  width: 550px;
+}
+
+.configconfigbox {
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.configinnerconfigbox {
+  display: grid;
+  grid-row-gap: 5px;
+}
+
+.config-action-title {
+  font-size: 25px;
+  grid-column: 1 / span 2 ;
+  grid-row: 1;
+}
+
+.config-text-label {
+  padding-top: 5px;
+  font-size: 15px;
+  grid-column: 1 / span 2 ;
+  grid-row: 2;
+}
+
+.config-input-text {
+  grid-column: 1 / span 2 ;
+  grid-row: 3;
+}
+
+.discounts-types {
+  grid-column: 1 / span 2 ;
+  grid-row: 4;
+  display: grid;
+}
+
+.discntsTypeLabel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.discntsTypesRadios {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.config-amount-label {
+  padding-top: 5px;
+  font-size: 15px;
+  grid-column: 1 / span 2 ;
+  grid-row: 5;
+}
+.config-input-amount {
+  grid-column: 1 / span 2 ;
+  grid-row: 6;
+}
+
+.config-addupddel {
+  padding-top: 10px;
+  padding-left: 60px;
+  text-align: center;
+  grid-column: 1  ;
+  grid-row: 7;
+}
+
+.config-cancel {
+  padding-top: 10px;
+  padding-left: 60px;
+  text-align: center;
+  grid-column: 2  ;
+  grid-row: 7;
+}
+
+.button-conf-aud {
+  width: 105px;
+}
+
+#descs-name, #discnts-name {
+  width: 430px;
+  font-size: 15px;
+  }
+#descs-amount, #discnts-amount {
+  width: 200px;
+  font-size: 15px;
+  text-align: right;
+}
+
+
+
+
+
+.importexportbox {
+  grid-column: 1 ;
+  grid-row: 2;
+  display: grid;
+  grid-column-gap: 60px;
+  border: solid;
+  border-color: #0066CC;
+  border-radius: 15px;
+}
+
+.importbox {
+  grid-column: 1 ;
+  grid-row: 1;
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  font-size: 30px;
+}
+
+.exportbox {
+  grid-column: 2 ;
+  grid-row: 1;
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  font-size: 30px;
+}
+
+.exportimportspacer {
+  grid-column: 3 / span 4 ;
+  grid-row: 1;
+}
+.exportbutton, .importbutton {
+  padding-top: 10px;
+
+}
+
+.importexportdesc {
+  padding-top: 25px;
+  font-size: 15px;
+}
+
+
+
+/**********************/
+/*   concepts page    */
+/**********************/
+
+.concepts-discounts-title {
+  font-size: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+  }
+
+.all-concepts-table {
+  text-align:center;
+  margin: 10px;
+}
+.concepts-discounts-table {
+  margin-left:auto;
+  margin-right:auto;
+  width: 1000px;
+}
+.concepts-col1 {
+  width: 5%;
+}
+.concepts-col2 {
+  width: 85%;
+}
+.concepts-col3 {
+  width: 10%;
+}
+
+.concepts-discounts-table th, .concepts-discounts-table td {
   border: 1px solid blue;
 }
 .concepts-header th{
   background: rgb(153, 204, 255);
 }
-.no-header {
-  width: 40px;
 
-}
-.concept-header {
-  width: 500px;
-}
-.price-header {
-  width: 100px;
+.concepts-header {
+    width: 600px;
 }
 
-.concepts-table tr:nth-child(odd){
+
+.concepts-discounts-table tr:nth-child(odd){
     background: #CCE5FF;
 }
 
-.concepts-table td:nth-child(1){
+.concepts-discounts-table td:nth-child(1){
   text-align: center;
 }
-.concepts-table td:nth-child(2){
+.concepts-discounts-table td:nth-child(2){
   text-align: left;
 }
-.concepts-table td:nth-child(3){
+.concepts-discounts-table td:nth-child(3){
   text-align: right;
+  padding-right: 5px;
 }
-textarea {
+.concepts-discounts-table td:nth-child(4){
+  text-align: center;
+}
+
+.discounts-col1 {
+  width: 5%;
+}
+.discounts-col2 {
+  width: 75%;
+}
+.discounts-col3 {
+  width: 10%;
+}
+.discounts-col4 {
+  width: 10%;
+}
+.discount-concepts {
+  padding-top: 50px;
+}
+
+.button-concept-div {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.justtosave {
   display: none;
+}
+
+/*************************
+******  modal section ****
+*************************/
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 5px solid rgb(0, 102, 194);
+  width: 50%;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-title {
+text-align: center;
+}
+
+.modal-close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: right;
+  grid-row = 1;
+  grid-column = 2
+}
+
+.modal-buttons{
+  text-align: center;
+  padding-top: 30px;
+}
+
+#modal-message-message {
+  text-align: center;
+}
+
+/**********************/
+/*   help page    */
+/**********************/
+
+.manual-page {
+  display: grid;
+  grid-row-gap: 20px;
+  height: 100%;
+}
+
+.manual-header {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: white;
+  width: 100%;
+  height: 180px;;
+
+}
+
+.sidenav {
+  grid-row: 2;
+  grid-column: 1;
+  height: auto;
+  width: 350px;
+  z-index: 1;
+  top: 280px;
+  left: 0;
+  background-color: rgb(0, 102, 194);
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 0px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #f1f1f1;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #818181;
+}
+
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  margin: 0;
+  color: #f1f1f1;
+  padding-inline-start: 20px;
+}
+
+
+ol > .index-il:hover {
+  color: #818181;
+}
+
+ol > .doc-il {
+  color: black;
+}
+
+ol > li {
+  display: table;
+  counter-increment: item;
+}
+
+ol > li:before {
+  content: counters(item, ".") ". ";
+  display: table-cell;
+  padding-right: 0.6em;
+}
+
+li > ol {
+    padding-inline-start: 0px;
+}
+li ol > li {
+  margin: 0;
+}
+
+li ol > li:before {
+  content: counters(item, ".") " ";
+}
+
+.steps > li {
+    counter-increment: listNumbering;
+    list-style: none;
+}
+.steps > li:before {
+    content: counter(listNumbering) '. ';
+}
+.steps > li:first-child {
+    counter-reset: listNumbering;
+}
+.steps {
+    color: black;
+}
+
+.main {;
+  grid-row: 2;
+  grid-column: 2;
+  font-size: 15px;
+  padding: 0px 10px;
+  margin: auto;
+}
+
+.docum {
+    height: 100%;
+    overflow-y:scroll;
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+.docindex {
+    height: 100%;
+    overflow-y:scroll;
+}
+
+.doc-il {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.text-section {
+  font-size: 21px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.text-subsection {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.text-subsubsection {
+  padding-top: 30px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text {
+  padding-top: 15px;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.picture {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.draw-title {
+  text-align: center;
+  font-style: italic;
+  font-size: 15px;
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+.picture .initial  {
+    height: 600px;
+    width: 600px;
+}
+
+.picture .middle {
+  width: 730px;
+  height: 420px;
+  border: solid;
+  border-color: #E0E0E0;
+  border-width: 3px;
+}
+
+.picture .middle-small {
+  width: 450px;
+  height: 300px;
+  border: solid;
+  border-color: #E0E0E0;
+  border-width: 3px;
+}
+
+.picture .middle-wide {
+  width: 730px;;
+  height: 300px;
+  border: solid;
+  border-color: #E0E0E0;
+  border-width: 3px;
+}
+
+.picture .middle-big {
+  width: 860px;
+  height: 560px;
+  border: solid;
+  border-color: #E0E0E0;
+  border-width: 3px;
+}
+
+.picture .middle-bigger {
+  width: 660px;
+  height: 860px;
+  border: solid;
+  border-color: #E0E0E0;
+  border-width: 3px;
 }
